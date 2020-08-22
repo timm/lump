@@ -45,12 +45,12 @@ doco() {
 
 about() { cat<<'EOF'
 
-<img align=right src="http://www.lisperati.com/lisplogo_fancy_256.png">
 
 Here are all my data mining LISP tricks.
 
 ## Install
 
+<img align=right src="http://www.lisperati.com/lisplogo_fancy_256.png">
 Install Common Lisp; e.g.:
 
 - Clisp: good for simple scripts and succinct debug information;
@@ -118,15 +118,17 @@ doco1() { cat<<'EOF'
 ([oo](https://github.com/timm/lump/tree/master/src/oo/README.md#top)
 ([sample](https://github.com/timm/lump/tree/master/src/sample/README.md#top)))))
 
+<p align=center>
 <img src="https://img.shields.io/badge/purpose-ai%20,%20se-blueviolet"><a 
 href="https://github.com/timm/lump/blob/master/LICENSE.md"><img  
    alt="License" src="https://img.shields.io/badge/license-mit-red"></a><a 
 href="https://doi.org/10.5281/zenodo.3947026"><img alt="DOI" 
    src="https://zenodo.org/badge/DOI/10.5281/zenodo.3947026.svg" alt="DOI"></a><img 
 alt="Platform" src="https://img.shields.io/badge/platform-osx%20,%20linux-lightgrey"><img 
-alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"><a 
+alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> `<a 
  href="https://travis-ci.org/github/timm/lump"><img alt="tests" 
    src="https://travis-ci.org/timm/lump.svg?branch=master"></a>
+</p>
 EOF
 }
 want=$Lump/.travis.yml
