@@ -39,25 +39,11 @@ for f in yes_*.lisp; do
 done | grep FAIL
 ```
 
-## About this code
+## About the code
 
 The file `README.md` is auto-generated from docstrings in the code
 (so  do
 not edit it manually).
-
-Each file knows its own dependancies (so every file can be tested independently)
-
-- The `yes_*` files are demos/test of everything else (so to understand this
-  code, read the `yes_*` files).
-- All the other files load code without
-  triggering  side-effects (so that code can be loaded as sub-routnines in other
-   packages).
-
-All the classes inherits from a  CLOS [thing](oo.lisp) class which:
-
-- Assigns a unique integer `id` to each instance
-- Knows how to pretty-print itself (while hiding secret slots; i.e. those starting with 
-  the underscore character `_`).
 
 For BASH users, a set of useful shell commands are loaded using 
 
@@ -71,6 +57,46 @@ This code
 To see the command defined by `etc/lump`, after doing `. etc/lump` then:
 
     usage
+
+## List of Tricks
+
+### One-file Config
+
+Everything I need to configure is controlled in one file `etc/lump`.
+
+### Micro Testing
+
+Each file knows its own dependancies (so every file can be tested independently)
+
+- The `yes_*` files are demos/test of everything else (so to understand this
+  code, read the `yes_*` files).
+- All the other files load code without
+  triggering  side-effects (so that code can be loaded as sub-routnines in other
+   packages).
+
+### Simpler Class Creation, Printing
+
+All the classes inherits from a  CLOS [thing](src/oo.lisp) class which, on creation.
+assigns a unique integer `id` to each instance.
+
+
+Also, I hate the default `defclass` syntax so my `defthing` alternative is much simpler:
+
+   (defthing klass super (slot1 init1) (slot2) (slot3 0))
+
+Instead of
+
+   (declass klass (super) 
+    ((slot1 :initform "init1" :init-arg :slot1)
+     (slot2                   :init-arg :slot2)
+     (slot3 :initform 0       :init-arg :slot3)))
+
+Also also my `thing` classes know how to pretty-print itself (while hiding secret slots; i.e. those starting with 
+  the underscore character `_`).
+
+## Code Documentation
+
+The following details are extracted from my code's docstrings.
 
 
 
