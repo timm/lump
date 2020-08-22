@@ -147,12 +147,9 @@ The file `src/readmes.lisp` converts LISP code into markdown documentation.
    packages).
 
 ### Simpler Class Creation, Printing
+I find the default `defclass` syntax tedious so my `defthing` alternative is much simpler.
+So
 
-All the classes inherits from a  CLOS [thing](src/oo.lisp) class which, on creation.
-assigns a unique integer `id` to each instance.
-
-
-Also, I find the default `defclass` syntax tedious so my `defthing` alternative is much simpler:
 
 ```lisp
 (defthing klass super (slot1 init1) (slot2) (slot3 0))
@@ -166,9 +163,11 @@ Instead of
     (slot2                   :init-arg :slot2)
     (slot3 :initform 0       :init-arg :slot3)))
 ```
+Two more details about `thing`s: 
 
-Also also my `thing` classes know how to pretty-print itself (while hiding secret slots; i.e. those starting with 
+- `Thing` classes know how to pretty-print itself (while hiding secret slots; i.e. those starting with 
   the underscore character `_`).
+-  On creation, `defthing` assigns a unique integer `id` to each instance.
 
 ## Code Documentation
 
