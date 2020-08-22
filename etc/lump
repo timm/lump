@@ -1,5 +1,6 @@
 # vim:ft=sh:
 Lump=$(cd $( dirname "${BASH_SOURCE[0]}" ) && pwd )
+mkdir -p $Lump/.var
 
 tput bold; tput setaf 2
 cat <<'EOF'
@@ -21,7 +22,7 @@ define "alias gs='git status'"
 define "alias gg='git pull'"   
 define "alias gp='git add *; git commit -am saving; git push; git status'"
 define "alias ls='ls -G'"
-define "alias reload='. $Lump/.lump'"
+define "alias reload='. $Lump/lump'"
 define "alias tmux='tmux -f $Lump/.var/tmuxrc'"
 define "alias vi='vim    -u $Lump/.var/vimrc'"
 
@@ -133,7 +134,7 @@ alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a
 </p>
 EOF
 }
-want=$Lump/.travis.yml
+want=$Lump/../.travis.yml
 [ -f "$want" ] || cat<<'EOF'>$want
 language: common-lisp
 sudo: required
@@ -155,10 +156,8 @@ notifications:
     - timm@ieee.org
 EOF
 
-Var=$Lump/.var
-mkdir -p $Var
  
-want=$Var/vimrc;
+want=$Lump/.var/vimrc;
 [ -f "$want" ] || cat<<'EOF'>$want
 set list
 set listchars=tab:>-
@@ -301,7 +300,7 @@ fi
 
 want=$Lump/.gitignore
 [ -f "$want" ] || cat<<'EOF'>$want
-.var
+etc/.var
 ## VIM ###
 
 # Swap
@@ -354,7 +353,7 @@ Temporary Items
 .apdisk
 EOF
 
-want=$Var/tmuxrc
+want=$Lump/.var/tmuxrc
 [ -f "$want" ] ||  cat<<'EOF'> $want
 set -g aggressive-resize on
 unbind C-b
