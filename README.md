@@ -1,27 +1,29 @@
-<a name=top></a>
+<a name=top></a><p align=top>
 
 [home](https://github.com/timm/lump/blob/master/README.md#top) ::
 [contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute) ::
 [discuss](https://github.com/timm/lump/issues) ::
 [&copy;2020](https://github.com/timm/lump/blob/master/LICENSE.md)  ["Tim Menzies"](http://menzies.us)
 
-# LUMP v0.1<br>(just (some (of (my LISP tricks))))
+</p>
 
+<h1 align=center> LUMP v0.1<br>(just (some (of (my LISP tricks)))) </h1>
+
+<p align=center>
 <img src="http://www.lisperati.com/lisplogo_fancy_256.png">
-
+<br>
 <img src="https://img.shields.io/badge/purpose-ai%20,%20se-blueviolet"> <a 
 href="https://github.com/timm/lump/blob/master/LICENSE.md"> <img  
    alt="License" src="https://img.shields.io/badge/license-mit-red"></a> <a 
   href="https://zenodo.org/badge/latestdoi/289524083"> <img 
-  src="https://zenodo.org/badge/289524083.svg" alt="DOI"></a> <br><img 
+  src="https://zenodo.org/badge/289524083.svg" alt="DOI"></a> <img 
 alt="Platform" src="https://img.shields.io/badge/platform-osx%20,%20linux-lightgrey"> <img 
 alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a 
  href="https://travis-ci.org/github/timm/lump"><img alt="tests" 
    src="https://travis-ci.org/timm/lump.svg?branch=master"></a>
+</p> 
 
 
-
-Here are all my data mining LISP tricks.
 
 ## Install
 
