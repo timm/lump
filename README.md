@@ -10,9 +10,9 @@ alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a
  href="https://travis-ci.org/github/timm/lump"><img alt="tests" 
    src="https://travis-ci.org/timm/lump.svg?branch=master"></a>
 </p> 
-<h1 align=center> LUMP v0.1<br>(just (some (of (my LISP tricks)))) </h1>
-<img src="http://www.lisperati.com/lisplogo_fancy_256.png"><br>
+<h1 align=center> LUMP v0.1<br>'(the (list (of (some :LISP "tricks")))) </h1>
 <p align=center>
+<img src="http://www.lisperati.com/lisplogo_fancy_256.png"><br>
 
 [home](https://github.com/timm/lump/blob/master/README.md#top) ::
 [contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute) ::
