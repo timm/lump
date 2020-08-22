@@ -1,17 +1,6 @@
-<a name=top></a><p align=top>
-
-[home](https://github.com/timm/lump/blob/master/README.md#top) ::
-[contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute) ::
-[discuss](https://github.com/timm/lump/issues) ::
-[&copy;2020](https://github.com/timm/lump/blob/master/LICENSE.md)  ["Tim Menzies"](http://menzies.us)
-
-</p>
-
-<h1 align=center> LUMP v0.1<br>(just (some (of (my LISP tricks)))) </h1>
-
+<a name=top></a>
 <p align=center>
-<img src="http://www.lisperati.com/lisplogo_fancy_256.png">
-<br>
+
 <img src="https://img.shields.io/badge/purpose-ai%20,%20se-blueviolet"> <a 
 href="https://github.com/timm/lump/blob/master/LICENSE.md"> <img  
    alt="License" src="https://img.shields.io/badge/license-mit-red"></a> <a 
@@ -21,7 +10,19 @@ alt="Platform" src="https://img.shields.io/badge/platform-osx%20,%20linux-lightg
 alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a 
  href="https://travis-ci.org/github/timm/lump"><img alt="tests" 
    src="https://travis-ci.org/timm/lump.svg?branch=master"></a>
+
 </p> 
+<h1 align=center> LUMP v0.1<br>(just (some (of (my LISP tricks)))) </h1>
+
+<p align=center>
+<img src="http://www.lisperati.com/lisplogo_fancy_256.png"><br>
+[home](https://github.com/timm/lump/blob/master/README.md#top) ::
+[contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute) ::
+[discuss](https://github.com/timm/lump/issues) ::
+[&copy;2020](https://github.com/timm/lump/blob/master/LICENSE.md)  ["Tim Menzies"](http://menzies.us)
+</p>
+
+
 
 
 
