@@ -136,12 +136,20 @@ To see the command defined by `etc/lump`, after doing `. etc/lump` then:
 
 Everything I need to configure is controlled in one file `etc/lump`.
 
+### Auto-generation of `defsystem.lisp`
+
+See the `system` comment in `etc/lump`.
+
+### Auto-generation of documentation.
+
+The file `src/readmes.lisp` converts LISP code into markdown documentation.
+
 ### Micro Testing
 
 Each file knows its own dependancies (so every file can be tested independently)
 
-- The `yes_*` files are demos/test of everything else (so to understand this
-  code, read the `yes_*` files).
+- The `src/yes_*` files are demos/test of everything else (so to understand this
+  code, read the `src/yes_*` files).
 - All the other files load code without
   triggering  side-effects (so that code can be loaded as sub-routnines in other
    packages).
@@ -152,16 +160,20 @@ All the classes inherits from a  CLOS [thing](src/oo.lisp) class which, on creat
 assigns a unique integer `id` to each instance.
 
 
-Also, I hate the default `defclass` syntax so my `defthing` alternative is much simpler:
+Also, I find the default `defclass` syntax tedious so my `defthing` alternative is much simpler:
 
-   (defthing klass super (slot1 init1) (slot2) (slot3 0))
+```lisp
+(defthing klass super (slot1 init1) (slot2) (slot3 0))
+```
 
 Instead of
 
-   (declass klass (super) 
-    ((slot1 :initform "init1" :init-arg :slot1)
-     (slot2                   :init-arg :slot2)
-     (slot3 :initform 0       :init-arg :slot3)))
+```lisp
+ (declass klass (super) 
+   ((slot1 :initform "init1" :init-arg :slot1)
+    (slot2                   :init-arg :slot2)
+    (slot3 :initform 0       :init-arg :slot3)))
+```
 
 Also also my `thing` classes know how to pretty-print itself (while hiding secret slots; i.e. those starting with 
   the underscore character `_`).
