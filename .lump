@@ -11,13 +11,19 @@ cat <<'EOF'
 EOF
 tput sgr0
 
-alias gg="git pull"   
-alias gp="git add *; git commit -am saving; git push; git status"
-alias gs="git status"   
-alias ls="ls -G"
-alias reload=". $Lump/.lump"
-alias tmux="tmux -f $Lump/.var/tmuxrc"
-alias vi="vim    -u $Lump/.var/vimrc"
+define() {
+  tput bold; tput setaf 0
+  echo "# $1"
+  tput sgr0
+  eval  $1
+}
+define "alias gs='git status'"   
+define "alias gg='git pull'"   
+define "alias gp='git add *; git commit -am saving; git push; git status'"
+define "alias ls='ls -G'"
+define "alias reload='. $Lump/.lump'"
+define "alias tmux='tmux -f $Lump/.var/tmuxrc'"
+define "alias vi='vim    -u $Lump/.var/vimrc'"
 
 ook()  { sbcl --script  ok${1}.lisp; }
 scl()  { sbcl --script $1.lisp;  }
@@ -27,11 +33,7 @@ vims() { vim -u $Lump/.var/vimrc +PluginInstall +qall; }
 
 for i in *.lisp; do
   f=$(basename $i .lisp)
-  com="alias $f='sbcl --script $i'"
-  tput bold; tput setaf 0
-  echo "# defining $com"
-  tput sgr0
-  eval  $com
+  define "alias $f='sbcl --script $i'"
 done
 
 PROMPT_COMMAND='echo -ne "💫 $(git branch 2>/dev/null | grep '^*' | colrm 1 2):";PS1="$(here ..)/$(here .):\!\e[m ▶ "'     
