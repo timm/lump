@@ -11,4 +11,5 @@ install:
   - sudo apt-get install sbcl
 
 script:
+  - cd src
   - sbcl --script yes_my.lisp

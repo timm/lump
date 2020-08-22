@@ -144,6 +144,7 @@ install:
   - curl https://raw.githubusercontent.com/luismbo/cl-travis/master/install.sh | bash
 
 script:
+  - cd src
   - sbcl --script yes_my.lisp
 
 notifications:
