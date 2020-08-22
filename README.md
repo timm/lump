@@ -1,6 +1,5 @@
 <a name=top></a>
 <p align=center>
-<img src="https://imgs.xkcd.com/comics/lisp_cycles.png"><br>
 <a href="https://github.com/timm/lump/blob/master/README.md#top">home</a> ::
 <a href="https://github.com/timm/lump/blob/master/READEME.md#contribute">contribute</a> ::
 <a href="https://github.com/timm/lump/issues">issues</a> ::
@@ -10,6 +9,7 @@
 <h1 align=center> LUMP v0.1<br>(print (list (of (some :LISP "tricks")))) </h1>
 
 <p align=center>
+<img src="https://imgs.xkcd.com/comics/lisp_cycles.png"><br>
 <img src="https://img.shields.io/badge/purpose-ai%20,%20se-blueviolet"> <a 
 href="https://github.com/timm/lump/blob/master/LICENSE.md"> <img  
    alt="License" src="https://img.shields.io/badge/license-mit-red"></a> <a 
