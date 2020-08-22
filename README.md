@@ -3,16 +3,68 @@
 ([&copy;2019](https://github.com/timm/lisp/blob/master/LICENSE.md) 
 (["Tim Menzies"](http://menzies.us))))
 <img width=1 height=25 src="https://github.com/timm/lisp/blob/master/etc/img/FFFFFF.png">
-<a href="https://github.com/timm/lisp/blob/master/README.md#top">
-<img src="https://raw.githubusercontent.com/timm/lisp/master/etc/img/gotlisp.png" ></a><br>
+<a href="https://github.com/timm/lump/blob/master/README.md#top">
+<img src="https://raw.githubusercontent.com/timm/lump/master/etc/img/banner.png" ></a><br>
 '(:site ([src](http://github.com/timm/lisp) 
-([contrib](https://github.com/timm/lisp/blob/master/CONTRIBUTING.md)
+([contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute)
 ([discuss](https://github.com/timm/lisp/issues))))      
 &nbsp;&nbsp;:code ([lib](https://github.com/timm/lisp/tree/master/src/lib/README.md#top)
 ([oo](https://github.com/timm/lisp/tree/master/src/oo/README.md#top)
 ([sample](https://github.com/timm/lisp/tree/master/src/sample/README.md#top)))))
 
 [![Build Status](https://travis-ci.org/timm/lump.svg?branch=master)](https://travis-ci.org/timm/lump)
+
+Here are all my data mining LISP tricks.
+
+## Install
+
+Install Common Lisp; e.g.:
+
+- Clisp: good for simple scripts and succinct debug information;
+- Sbcl: good for speed and verbose debig information
+
+Download [the code](https://github.com/timm/lump/archive/master.zip) and unzip
+it.
+
+Test all the `yes_*.lisp` files, looking for failure cases e.g.
+
+    for f in yes_*.lisp; do sbcl --script $f; done | grep FAIL
+
+## About this code
+
+The file `README.md` is auto-generated from docstrings in the code
+(so  do
+not edit it manually).
+
+Each file knows its own dependancies (so every file can be tested independently)
+
+- The `yes_*` files are demos/test of everything else (so to understand this
+  code, read the `yes_*` files).
+- All the other files load code without
+  triggering  side-effects (so that code can be loaded as sub-routnines in other
+   packages).
+
+All the classes inherits from a  CLOS [thing](oo.lisp) class which:
+
+- Assigns a unique integer `id` to each instance
+- Knows how to pretty-print itself (while hiding secret slots; i.e. those starting with 
+  the underscore character `_`).
+
+For BASH users, s set of useful shell commands are loaded using 
+
+    . .lump
+
+This code:
+
+- Creates some useful functions; e.g.
+  - `doco` :  regenerates `README.md`
+- Creates some useful short-cut alias; e.g.
+  - `gp` = commit all files, push them back to the web (via git)
+  - `reload` = reload `.lump` (usful if you edit that file and want to access the updated
+    functionality).
+- Ensures that `.gitignore`, `.travis.yml`, `.var/vimrc` `.var/.tumuxrc` exists
+- Ensures that `vi` will use `.var/bashrc`  and `tmux` will use `.var/tmuxrc`
+
 
 
 # LUMP
