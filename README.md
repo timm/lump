@@ -29,8 +29,9 @@
 
 <ul>
 
- Cols can be eother `num`s or `sym`s for numeric
-or symbolic content (respectively).
+Code for incrementally managing summaries of  `num`eric or `sym`bolic  
+data. `Num`s can report their mean and standard deviation while `Sym`s can
+report their mode and entropy.
 
 </ul>
 
@@ -97,18 +98,6 @@ Recursive access to slot instances
 
 
 
-### `dohash ((k v h &optional out) &body body)`
-
-
-
-<ul>
-
-Set key `k` and value `v` to items in hash. Returns `out`.
-
-</ul>
-
-
-
 ### `doitems ((one pos lst &optional out) &body body)`
 
 
@@ -137,12 +126,6 @@ getter for globals
 
 </ul>
 
-
-
-
--------
-
-## [okcol.lisp](okcol.lisp)
 
 
 
@@ -340,6 +323,12 @@ Return one list per line, words separated by commas.
 -------
 
 ## [yes.lisp](yes.lisp)
+
+
+
+-------
+
+## [yes_col.lisp](yes_col.lisp)
 
 
 
