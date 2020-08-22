@@ -23,9 +23,9 @@ alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a
 
 
 
-To download, isntall, and test this code:
+## How to install LUMP
 
-1 Install Common Lisp; e.g.:
+1. Install Common Lisp; e.g.:
   - Clisp: good for simple scripts and succinct debug information;
   - Sbcl: good for speed and verbose debig information
 2.  Download [the code](https://github.com/timm/lump/archive/master.zip) and unzip
