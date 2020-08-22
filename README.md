@@ -12,6 +12,7 @@
 ([oo](https://github.com/timm/lisp/tree/master/src/oo/README.md#top)
 ([sample](https://github.com/timm/lisp/tree/master/src/sample/README.md#top)))))
 
+[![Build Status](https://travis-ci.org/timm/lump.svg?branch=master)](https://travis-ci.org/timm/lump)
 
 
 # LUMP
