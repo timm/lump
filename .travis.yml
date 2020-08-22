@@ -1,10 +1,18 @@
-language: python
-python:
-  - "3.8"
-cache: pip
+language: common-lisp
+sudo: required
+
+env:
+  matrix:
+    - LISP=sbcl
+    - LISP=clisp
+
 install:
-  - pip3 install -r requirements.txt
+  # Install cl-travis
+  - curl https://raw.githubusercontent.com/luismbo/cl-travis/master/install.sh | bash
+
 script:
-  - pwd
-  - ls
-  - python3 -m bnbad -T
+  - sbcl --script yesmy.lisp
+
+notifications:
+  email:
+    - timm@ieee.org
