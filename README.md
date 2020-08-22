@@ -41,13 +41,17 @@ done | grep FAIL
 
 ## About the code
 
-The file `README.md` is auto-generated from docstrings in the code
+In this code:
+
+- All the tests are in `src/yes_*.lisp` files
+-- The file `README.md` is auto-generated from docstrings in the code
 (so  do
 not edit it manually).
+- For BASH users, a set of useful shell commands are loaded using 
 
-For BASH users, a set of useful shell commands are loaded using 
-
-    . etc/lump
+```sh
+. etc/lump
+```
 
 This code
 
