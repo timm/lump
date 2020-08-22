@@ -180,6 +180,18 @@ Recursive access to slot instances
 
 
 
+### `do-hash ((k v h &optional out) &body body)`
+
+
+
+<ul>
+
+Set key `k` and value `v` to items in hash. Returns `out`.
+
+</ul>
+
+
+
 ### `doitems ((one pos lst &optional out) &body body)`
 
 
@@ -340,6 +352,18 @@ Generate README.md from doco strings from LISP code in a directory.
 -------
 
 ## [rows.lisp](rows.lisp)
+
+
+### `add ((i rows) lst)`
+
+
+
+<ul>
+
+simply add one `lst` of data to `i`
+
+</ul>
+
 
 
 

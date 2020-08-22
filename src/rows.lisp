@@ -27,20 +27,25 @@
     :cells (mapcar #'add (? i all) cells)))
 
 ;;; rows ----------------------------------------
-(defmethod use? ((i rows) head &aux out)
-  (doitems (txt pos head out)
-    (unless (ignore? txt) (push pos out))))
 
-(defmethod use! ((i rows) using row &aux out)
-  (dolist (use using out)
-     (push (elt row use) out)))
+(defmethod add ((i rows) lst)
+ "simply add one `lst` of data to `i`"
+  (with-slots (all cols) i
+    (if (? cols all)
+      (push (row cols i lst) all)
+      (header cols lst))))
 
-(defmethod take ((i rows) 
-		 lst &aux (using (use? i (car lst))))
-  (with-slots (cols all) i
-    (dolist (tmp lst i)
-      (setf tmp (use! i using tmp))
-      (if (? cols all)
-	(push (row cols i tmp) all)
-	(header cols tmp))))
-  i)
+(defmethod adds ((i rows) lst)
+  "Add N things, skipping any `ignore?`ed columns."
+  (labels 
+    ((use? (lst &aux out)
+           (doitems (txt pos (car lst)) 
+             (unless (ignore? txt) (push pos out))))
+     (use! (using one &aux out)
+           (dolist (use using out) 
+             (push (elt one use) out))))
+    (let ((using (use? lst)))
+      (dolist (one lst i)
+        (add i (use! using one))))))
+
+

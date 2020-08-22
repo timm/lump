@@ -36,7 +36,7 @@ report their mode and entropy."
 
 (defmethod ent ((i sym) &aux (out 0))
   (with-slots (seen n) i
-    (dohash (_ v seen out)
+    (do-hash (_ v seen out)
       (let ((p (/ v n)))
         (if (> p 0)
           (decf out (* p (log p 2))))))))
