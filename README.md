@@ -23,17 +23,14 @@ alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a
 
 
 
-## Install
+To download, isntall, and test this code:
 
-Install Common Lisp; e.g.:
-
-- Clisp: good for simple scripts and succinct debug information;
-- Sbcl: good for speed and verbose debig information
-
-Download [the code](https://github.com/timm/lump/archive/master.zip) and unzip
+1 Install Common Lisp; e.g.:
+  - Clisp: good for simple scripts and succinct debug information;
+  - Sbcl: good for speed and verbose debig information
+2.  Download [the code](https://github.com/timm/lump/archive/master.zip) and unzip
 it.
-
-Test all the `yes_*.lisp` files, looking for failure cases e.g.
+3. Test all the `yes_*.lisp` files, looking for failure cases e.g.
 
     for f in yes_*.lisp; do 
       sbcl --script $f
