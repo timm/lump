@@ -120,12 +120,10 @@ alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a
 <h1 align=center> LUMP v0.1<br>'(the (list (of (some :LISP "tricks")))) </h1>
 <p align=center>
 <img src="http://www.lisperati.com/lisplogo_fancy_256.png"><br>
-
-[home](https://github.com/timm/lump/blob/master/README.md#top) ::
-[contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute) ::
-[discuss](https://github.com/timm/lump/issues) ::
-[&copy;2020](https://github.com/timm/lump/blob/master/LICENSE.md)  ["Tim Menzies"](http://menzies.us)
-
+<a href="https://github.com/timm/lump/blob/master/README.md#top">home</a> ::
+<a href="https://github.com/timm/lump/blob/master/READEME.md#contribute">contribute</a> ::
+<a href="https://github.com/timm/lump/issues">issues</a> ::
+<a href="https://github.com/timm/lump/blob/master/LICENSE.md">&copy;2020<a> by <a href="http://menzies.us">Tim Menzies</a>
 </p>
 
 
