@@ -15,7 +15,8 @@
 
 (defun readme(dir &optional (s t))
   "Generate README.md from doco strings from LISP code in a directory."
-  (format t "~%~%# ~a~%~%~%" (string-upcase dir))
+  (if (> (length dir) 0)
+      (format t "~%~%# ~a~%~%~%" (string-upcase dir)))
   (dolist (f (sort (directory "*.lisp") 
                    #'(lambda (x y) (string< (pathname-name x) 
                                             (pathname-name y)))))

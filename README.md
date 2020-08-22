@@ -81,11 +81,6 @@ This code:
 
 
 
-# LUMP
-
-
-
-
 -------
 
 ## [col.lisp](col.lisp)

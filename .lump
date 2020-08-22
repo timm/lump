@@ -39,7 +39,7 @@ PROMPT_COMMAND='echo -ne "💫 $(git branch 2>/dev/null | grep '^*' | colrm 1 2)
 doco() {
   doco1 > README.md
   about >> README.md
-  clisp readmes.lisp --makedoc LUMP >> README.md
+  clisp readmes.lisp --makedoc >> README.md
   git add README.md
 }
 
