@@ -1,18 +1,20 @@
 <a name=top></a>
-'([home](https://github.com/timm/lisp/blob/master/README.md#top) 
-([&copy;2019](https://github.com/timm/lisp/blob/master/LICENSE.md) 
+'([home](https://github.com/timm/lump/blob/master/README.md#top) 
+([&copy;2020](https://github.com/timm/lump/blob/master/LICENSE.md) 
 (["Tim Menzies"](http://menzies.us))))
-<img width=1 height=25 src="https://github.com/timm/lisp/blob/master/etc/img/FFFFFF.png">
+<img width=1 height=25 src="https://github.com/timm/lump/blob/master/etc/img/FFFFFF.png">
 <a href="https://github.com/timm/lump/blob/master/README.md#top">
 <img src="https://raw.githubusercontent.com/timm/lump/master/etc/img/banner.png" ></a><br>
 '(:site ([src](http://github.com/timm/lisp) 
 ([contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute)
-([discuss](https://github.com/timm/lisp/issues))))      
-&nbsp;&nbsp;:code ([lib](https://github.com/timm/lisp/tree/master/src/lib/README.md#top)
-([oo](https://github.com/timm/lisp/tree/master/src/oo/README.md#top)
-([sample](https://github.com/timm/lisp/tree/master/src/sample/README.md#top)))))
+([discuss](https://github.com/timm/lump/issues))))      
+&nbsp;&nbsp;:code ([lib](https://github.com/timm/lump/tree/master/src/lib/README.md#top)
+([oo](https://github.com/timm/lump/tree/master/src/oo/README.md#top)
+([sample](https://github.com/timm/lump/tree/master/src/sample/README.md#top)))))
 
 [![Build Status](https://travis-ci.org/timm/lump.svg?branch=master)](https://travis-ci.org/timm/lump)
+
+<img align=right src="http://www.lisperati.com/lisplogo_fancy_256.png">
 
 Here are all my data mining LISP tricks.
 
@@ -28,7 +30,9 @@ it.
 
 Test all the `yes_*.lisp` files, looking for failure cases e.g.
 
-    for f in yes_*.lisp; do sbcl --script $f; done | grep FAIL
+    for f in yes_*.lisp; do 
+      sbcl --script $f
+    done | grep FAIL
 
 ## About this code
 
@@ -418,49 +422,4 @@ Return one list per line, words separated by commas.
 -------
 
 ## [yes_test.lisp](yes_test.lisp)
-
-
-## License
-
- Copyright (C) 2020 Tim Menzies <timm@ieee.org>
-
- Everyone is permitted to copy and distribute verbatim or modified 
- copies of this license document, and changing it is allowed as long 
- as the name is changed. 
-
-This program is free software. It comes without any warranty, to
-the extent permitted by applicable law. You can redistribute it
-and/or modify it under the terms of the Do What The Fuck You Want
-To Public License, Version 2, as published by Sam Hocevar. See
-http://www.wtfpl.net/ for more details. 
-
-<p align=center>
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE <br>
-   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
-</p>
-
-1. You just DO WHAT THE FUCK YOU WANT TO.
-
-
-### FAQ on the License
-
-Can’t you change the wording? It’s inappropriate / childish / not corporate-compliant?
-
-- The WTFPL lets you relicense the work under any other license.
-
-Can I make money with my software using the WTFPL?
-
-- Yes.
-
-By the way, with the WTFPL, can I also…
-
-- Oh but yes, of course you can.
-
-But can I…
-
-- Yes you can.
-
-Can…
-
-- Yes!
 
