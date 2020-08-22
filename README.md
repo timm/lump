@@ -59,20 +59,18 @@ All the classes inherits from a  CLOS [thing](oo.lisp) class which:
 - Knows how to pretty-print itself (while hiding secret slots; i.e. those starting with 
   the underscore character `_`).
 
-For BASH users, s set of useful shell commands are loaded using 
+For BASH users, a set of useful shell commands are loaded using 
 
-    . .lump
+    . etc/lump
 
-This code:
+This code
 
-- Creates some useful functions; e.g.
-  - `doco` :  regenerates `README.md`
-- Creates some useful short-cut alias; e.g.
-  - `gp` = commit all files, push them back to the web (via git)
-  - `reload` = reload `.lump` (usful if you edit that file and want to access the updated
-    functionality).
 - Ensures that `.gitignore`, `.travis.yml`, `.var/vimrc` `.var/.tumuxrc` exists
 - Ensures that `vi` will use `.var/bashrc`  and `tmux` will use `.var/tmuxrc`
+
+To see the command defined by `etc/lump`, after doing `. etc/lump` then:
+
+    usage
 
 
 

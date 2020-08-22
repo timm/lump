@@ -2,8 +2,7 @@
 Lump=$(cd $( dirname "${BASH_SOURCE[0]}" ) && pwd )
 mkdir -p $Lump/.var
 
-tput bold; tput setaf 2
-cat <<'EOF'
+tput bold; tput setaf 2; cat <<'EOF'
    .-.
   (o o)  (lithp
   ( O )    (ith
@@ -12,10 +11,33 @@ cat <<'EOF'
 EOF
 tput sgr0
 
+usage() { 
+tput bold; tput setaf 0; cat <<'EOF'
+
+Github:
+  gs         git status   
+  gg         git pull   
+  gp         git add *; git commit -am saving; git push; git status
+
+Bash:
+  doco       generated README.md fro docstrings in src/*.lisp
+  ls         ls -G
+  reload     . $Lump/lump
+  tmux       tmux -f $Lump/.var/tmuxrc
+  vi         vim    -u $Lump/.var/vimrc
+  vims       (re)install all vim packages
+
+Lisp:  
+  y   FILE   scbl --script yes_FILE.lisp
+  scl FILE   sbcl --script FILE.iisp
+  ccl FILE   clisp FILE.iisp
+
+EOF
+tput sgr0
+}
 define() {
   tput bold; tput setaf 0
-  echo "# $1"
-  tput sgr0
+  echo "# $1"; tput sgr0
   eval  $1
 }
 define "alias gs='git status'"   
@@ -26,7 +48,7 @@ define "alias reload='. $Lump/lump'"
 define "alias tmux='tmux -f $Lump/.var/tmuxrc'"
 define "alias vi='vim    -u $Lump/.var/vimrc'"
 
-ook()  { sbcl --script  ok${1}.lisp; }
+y()    { sbcl --script  yes_${1}.lisp; }
 scl()  { sbcl --script $1.lisp;  }
 ccl()  { clisp $1.lisp;  }
 here() { cd $1; basename `pwd`; }    
@@ -86,20 +108,18 @@ All the classes inherits from a  CLOS [thing](oo.lisp) class which:
 - Knows how to pretty-print itself (while hiding secret slots; i.e. those starting with 
   the underscore character `_`).
 
-For BASH users, s set of useful shell commands are loaded using 
+For BASH users, a set of useful shell commands are loaded using 
 
-    . .lump
+    . etc/lump
 
-This code:
+This code
 
-- Creates some useful functions; e.g.
-  - `doco` :  regenerates `README.md`
-- Creates some useful short-cut alias; e.g.
-  - `gp` = commit all files, push them back to the web (via git)
-  - `reload` = reload `.lump` (usful if you edit that file and want to access the updated
-    functionality).
 - Ensures that `.gitignore`, `.travis.yml`, `.var/vimrc` `.var/.tumuxrc` exists
 - Ensures that `vi` will use `.var/bashrc`  and `tmux` will use `.var/tmuxrc`
+
+To see the command defined by `etc/lump`, after doing `. etc/lump` then:
+
+    usage
 
 EOF
 }
