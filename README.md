@@ -32,9 +32,12 @@ alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a
 it.
 3. Test all the `yes_*.lisp` files, looking for failure cases e.g.
 
-    for f in yes_*.lisp; do 
-      sbcl --script $f
-    done | grep FAIL
+
+```sh
+for f in yes_*.lisp; do 
+   sbcl --script $f
+done | grep FAIL
+```
 
 ## About this code
 
