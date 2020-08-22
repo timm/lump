@@ -8,11 +8,7 @@ env:
 
 install:
   # Install cl-travis
-  - curl https://raw.githubusercontent.com/luismbo/cl-travis/master/install.sh | bash
+  - sudo apt-get install sbcl
 
 script:
   - sbcl --script yes_my.lisp
-
-notifications:
-  email:
-    - timm@ieee.org
