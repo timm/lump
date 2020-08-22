@@ -28,6 +28,7 @@ Bash:
   vims       (re)install all vim packages
 
 Lisp:  
+  system     update defsystem.lisp with latest file listings
   y   FILE   scbl --script yes_FILE.lisp
   scl FILE   sbcl --script FILE.iisp
   ccl FILE   clisp FILE.iisp
@@ -63,6 +64,28 @@ done
 
 PROMPT_COMMAND='echo -ne "💫 $(git branch 2>/dev/null | grep '^*' | colrm 1 2):";PS1="$(here ..)/$(here .):\!\e[m ▶ "'     
 
+system() { cat <<'EOF'> $Lump/../defsystem.lisp
+(defsystem lump
+  :author "Tim Menzies <timm@ieee.org>"
+  :maintainer "Tim Menzies <timm@ieee.org>"
+  :license "MIT"
+  :version "0.2"
+  :homepage "https://github.com/timm/lump"
+  :bug-tracker "https://github.com/timm/lump/issues"
+  :source-control (:git "git@github.com:timm/lump.git")
+  :description "Some of my LISP tricks"
+  :depends-on ()
+  :components ((:module "src"
+                :serial t
+                :components (
+EOF
+  for f in $Lump/../src/*.lisp; do
+    f=$(basename $f .lisp)
+    echo "                            (:file \"$f\")" >> $Lump/../defsystem.lisp
+  done
+  echo "       )))" >> $Lump/../defsystem.lisp
+  echo "  :long-description #.(uiop:read-file-string (uiop:subpathname *load-pathname* \"README.md\")))" >> $Lump/../defsystem.lisp
+}
 doco() {
   (cd $Lump/../src; doco1; about; clisp readmes.lisp --makedoc) > $Lump/../README.md
   git add $Lump/../README.md
