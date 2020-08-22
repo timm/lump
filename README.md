@@ -1,35 +1,30 @@
 <a name=top></a>
-'([home](https://github.com/timm/lump/blob/master/README.md#top) 
-([&copy;2020](https://github.com/timm/lump/blob/master/LICENSE.md) 
-(["Tim Menzies"](http://menzies.us))))
-<img width=1 height=25 src="https://github.com/timm/lump/blob/master/etc/img/FFFFFF.png">
-<a href="https://github.com/timm/lump/blob/master/README.md#top">
-<img src="https://raw.githubusercontent.com/timm/lump/master/etc/img/banner.png" ></a><br>
-'(:site ([src](http://github.com/timm/lisp) 
-([contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute)
-([discuss](https://github.com/timm/lump/issues))))      
-&nbsp;&nbsp;:code ([lib](https://github.com/timm/lump/tree/master/src/lib/README.md#top)
-([oo](https://github.com/timm/lump/tree/master/src/oo/README.md#top)
-([sample](https://github.com/timm/lump/tree/master/src/sample/README.md#top)))))
 
-<p align=center>
+[home](https://github.com/timm/lump/blob/master/README.md#top) ::  
+[contrib](https://github.com/timm/lump/blob/master/READEME.md#contribute) ::  
+[discuss](https://github.com/timm/lump/issues) ::  
+[&copy;2020](https://github.com/timm/lump/blob/master/LICENSE.md)  ["Tim Menzies"](http://menzies.us) ::
+
+# LUMP v0.1<br>(just (some (of (my LISP tricks))))
+
+<img src="http://www.lisperati.com/lisplogo_fancy_256.png">
+
 <img src="https://img.shields.io/badge/purpose-ai%20,%20se-blueviolet"> <a 
 href="https://github.com/timm/lump/blob/master/LICENSE.md"> <img  
    alt="License" src="https://img.shields.io/badge/license-mit-red"></a> <a 
   href="https://zenodo.org/badge/latestdoi/289524083"> <img 
-  src="https://zenodo.org/badge/289524083.svg" alt="DOI"></a> <img 
+  src="https://zenodo.org/badge/289524083.svg" alt="DOI"></a> <br>img 
 alt="Platform" src="https://img.shields.io/badge/platform-osx%20,%20linux-lightgrey"> <img 
 alt="lisp" src="https://img.shields.io/badge/language-sbcl,clisp-blue"> <a 
  href="https://travis-ci.org/github/timm/lump"><img alt="tests" 
    src="https://travis-ci.org/timm/lump.svg?branch=master"></a>
-</p>
+
 
 
 Here are all my data mining LISP tricks.
 
 ## Install
 
-<img align=right src="http://www.lisperati.com/lisplogo_fancy_256.png">
 Install Common Lisp; e.g.:
 
 - Clisp: good for simple scripts and succinct debug information;
@@ -110,12 +105,6 @@ report their mode and entropy.
 -------
 
 ## [is.lisp](is.lisp)
-
-
-
--------
-
-## [k.lisp](k.lisp)
 
 
 
@@ -320,6 +309,12 @@ Generate README.md from doco strings from LISP code in a directory.
 -------
 
 ## [rows.lisp](rows.lisp)
+
+
+
+-------
+
+## [sandbox.lisp](sandbox.lisp)
 
 
 
