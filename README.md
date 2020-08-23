@@ -121,9 +121,11 @@ The following details are extracted from my code's docstrings.
 
 
 <ul>
+
 Code for incrementally managing summaries of  `num`eric or `sym`bolic  
 data. `Num`s can report their mean and standard deviation while `Sym`s can
 report their mode and entropy.
+
 </ul>
 
 
@@ -146,43 +148,53 @@ report their mode and entropy.
 ## [macros.lisp](src/macros.lisp)
 
 
-### `while (test &body body)`
+### while (test &body body)
 
 
 <ul>
+
 Adding a `while` loop to LISP.
+
 </ul>
 
 
-### `getr (how obj f &rest fs)`
+### getr (how obj f &rest fs)
 
 
 <ul>
+
 Recursive access to contents.
+
 </ul>
 
 
-### `? (x &rest fs)`
+### ? (x &rest fs)
 
 
 <ul>
+
 Recursive access to slot instances
+
 </ul>
 
 
-### `do-hash ((k v h &optional out) &body body)`
+### do-hash ((k v h &optional out) &body body)
 
 
 <ul>
+
 Set key `k` and value `v` to items in hash. Returns `out`.
+
 </ul>
 
 
-### `doitems ((one pos lst &optional out) &body body)`
+### doitems ((one pos lst &optional out) &body body)
 
 
 <ul>
+
 Item `one` is found at `pos` in `lst`. Returns `out`.
+
 </ul>
 
 
@@ -192,11 +204,13 @@ Item `one` is found at `pos` in `lst`. Returns `out`.
 ## [my.lisp](src/my.lisp)
 
 
-### `my (&rest fs)`
+### my (&rest fs)
 
 
 <ul>
+
 getter for globals
+
 </ul>
 
 
@@ -206,27 +220,33 @@ getter for globals
 ## [oo.lisp](src/oo.lisp)
 
 
-### `defthing (x parent &rest slots)`
+### defthing (x parent &rest slots)
 
 
 <ul>
+
 Succinct class creation
+
 </ul>
 
 
-### `print-object ((object hash-table) stream)`
+### print-object ((object hash-table) stream)
 
 
 <ul>
+
 Pretty print hash tables.
+
 </ul>
 
 
-### `print-object ((it thing) out)`
+### print-object ((it thing) out)
 
 
 <ul>
+
 For `thing` classes, print all public slots
+
 </ul>
 
 
@@ -236,43 +256,53 @@ For `thing` classes, print all public slots
 ## [os.lisp](src/os.lisp)
 
 
-### `klass-slots (it)`
+### klass-slots (it)
 
 
 <ul>
+
 what are the slots of a class?
+
 </ul>
 
 
-### `klass-slot-definition-name (x)`
+### klass-slot-definition-name (x)
 
 
 <ul>
+
 what is a slot's name?
+
 </ul>
 
 
-### `args `
+### args 
 
 
 <ul>
+
 what are the command line args?
+
 </ul>
 
 
-### `stop `
+### stop 
 
 
 <ul>
+
 how to halt the program?
+
 </ul>
 
 
-### `sh (cmd)`
+### sh (cmd)
 
 
 <ul>
+
 Run a shwll command
+
 </ul>
 
 
@@ -282,19 +312,23 @@ Run a shwll command
 ## [readmes.lisp](src/readmes.lisp)
 
 
-### `doread ((it f &optional out &key (take #'read)) &body body)`
+### doread ((it f &optional out &key (take #'read)) &body body)
 
 
 <ul>
+
 Iterator for running over files or strings.
+
 </ul>
 
 
-### `readme (dir &optional (s t))`
+### readme (dir &optional (s t))
 
 
 <ul>
+
 Generate README.md from doco strings from LISP code in a directory.
+
 </ul>
 
 
@@ -304,19 +338,23 @@ Generate README.md from doco strings from LISP code in a directory.
 ## [rows.lisp](src/rows.lisp)
 
 
-### `add ((i rows) lst)`
+### add ((i rows) lst)
 
 
 <ul>
+
 simply add one `lst` of data to `i`
+
 </ul>
 
 
-### `adds ((i rows) lst)`
+### adds ((i rows) lst)
 
 
 <ul>
+
 Add N things, skipping any `ignore?`ed columns.
+
 </ul>
 
 
@@ -335,37 +373,45 @@ Add N things, skipping any `ignore?`ed columns.
 
 
 <ul>
+
 Misc string tricks
+
 </ul>
 
 
 
-### `words (s &optional (lo 0) (hi (position , s start (1+ lo))))`
+### words (s &optional (lo 0) (hi (position , s start (1+ lo))))
 
 
 <ul>
+
 Separate a string `s` on commas
+
 </ul>
 
 
-### `lines 
+### lines 
 (s &optional (lo 0)
  (hi
   (position
    
-   s start (1+ lo))))`
+   s start (1+ lo))))
 
 
 <ul>
+
 Separate a string `s` on newline.
+
 </ul>
 
 
-### `with-csv ((line file) &body body)`
+### with-csv ((line file) &body body)
 
 
 <ul>
+
 Return one list per line, words separated by commas.
+
 </ul>
 
 

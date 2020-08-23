@@ -35,14 +35,14 @@
                               (stringp (fourth x))
                               (not (equal "" (fourth x)))))
            (dump   (str  &optional (pad ""))
-                   (format s "~%<ul>~%~a~a~%</ul>~%" pad str)))
+                   (format s "~%<ul>~%~%~a~a~%~%</ul>~%" pad str)))
           (when (fyip)
             (terpri s) (terpri s)
             (dump x)
             (terpri s) (terpri s)
             )
           (when (and (defp) (docp) (not (secret)))
-            (format s "~%### `~(~a~) ~(~a~)`~%~%" 
+            (format s "~%### ~(~a~) ~(~a~)~%~%" 
                     (second x) (or (third x) ""))
             (dump (fourth x))
             (format s "~%")))))))
