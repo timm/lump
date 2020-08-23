@@ -107,15 +107,30 @@ The following details are extracted from my code's docstrings.
 
 
 
--------
-
-## [bins.lisp](bins.lisp)
+## [bins.lisp](src/bins.lisp)
 
 
 
--------
 
-## [col.lisp](col.lisp)
+<ul>
+
+Discretizing and ranking columns of data.
+
+</ul>
+
+
+
+
+## [col.lisp](src/col.lisp)
+
+
+
+
+<ul>
+
+Summarizing columns of data.
+
+</ul>
 
 
 
@@ -123,7 +138,7 @@ The following details are extracted from my code's docstrings.
 
 <ul>
 
-Code for incrementally managing summaries of  `num`eric or `sym`bolic  
+Columns can be either `num`eric or `sym`bolic
 data. `Num`s can report their mean and standard deviation while `Sym`s can
 report their mode and entropy.
 
@@ -132,26 +147,48 @@ report their mode and entropy.
 
 
 
-
--------
-
-## [got.lisp](got.lisp)
+## [got.lisp](src/got.lisp)
 
 
 
--------
 
-## [is.lisp](is.lisp)
+<ul>
 
+Load control (never load the same thing twice).
 
-
--------
-
-## [macros.lisp](macros.lisp)
+</ul>
 
 
-### `while (test &body body)`
 
+
+## [is.lisp](src/is.lisp)
+
+
+
+
+<ul>
+
+Define bunch of magic symbols.
+
+</ul>
+
+
+
+
+## [macros.lisp](src/macros.lisp)
+
+
+
+
+<ul>
+
+Useful macros.
+
+</ul>
+
+
+
+### while (test &body body)
 
 
 <ul>
@@ -161,9 +198,7 @@ Adding a `while` loop to LISP.
 </ul>
 
 
-
-### `getr (how obj f &rest fs)`
-
+### getr (how obj f &rest fs)
 
 
 <ul>
@@ -173,9 +208,7 @@ Recursive access to contents.
 </ul>
 
 
-
-### `? (x &rest fs)`
-
+### ? (x &rest fs)
 
 
 <ul>
@@ -185,9 +218,7 @@ Recursive access to slot instances
 </ul>
 
 
-
-### `do-hash ((k v h &optional out) &body body)`
-
+### do-hash ((k v h &optional out) &body body)
 
 
 <ul>
@@ -197,9 +228,7 @@ Set key `k` and value `v` to items in hash. Returns `out`.
 </ul>
 
 
-
-### `doitems ((one pos lst &optional out) &body body)`
-
+### doitems ((one pos lst &optional out) &body body)
 
 
 <ul>
@@ -210,14 +239,34 @@ Item `one` is found at `pos` in `lst`. Returns `out`.
 
 
 
-
--------
-
-## [my.lisp](my.lisp)
+## [misc.lisp](src/misc.lisp)
 
 
-### `my (&rest fs)`
 
+
+<ul>
+
+Misc stuff that belongs nowhere else.
+
+</ul>
+
+
+
+
+## [my.lisp](src/my.lisp)
+
+
+
+
+<ul>
+
+Define globals.
+
+</ul>
+
+
+
+### my (&rest fs)
 
 
 <ul>
@@ -228,14 +277,20 @@ getter for globals
 
 
 
-
--------
-
-## [oo.lisp](oo.lisp)
+## [oo.lisp](src/oo.lisp)
 
 
-### `defthing (x parent &rest slots)`
 
+
+<ul>
+
+Simpler OO in LISP.
+
+</ul>
+
+
+
+### defthing (x parent &rest slots)
 
 
 <ul>
@@ -245,9 +300,7 @@ Succinct class creation
 </ul>
 
 
-
-### `print-object ((object hash-table) stream)`
-
+### print-object ((object hash-table) stream)
 
 
 <ul>
@@ -257,9 +310,7 @@ Pretty print hash tables.
 </ul>
 
 
-
-### `print-object ((it thing) out)`
-
+### print-object ((it thing) out)
 
 
 <ul>
@@ -270,14 +321,20 @@ For `thing` classes, print all public slots
 
 
 
-
--------
-
-## [os.lisp](os.lisp)
+## [os.lisp](src/os.lisp)
 
 
-### `klass-slots (it)`
 
+
+<ul>
+
+Operating system specific code.
+
+</ul>
+
+
+
+### klass-slots (it)
 
 
 <ul>
@@ -287,9 +344,7 @@ what are the slots of a class?
 </ul>
 
 
-
-### `klass-slot-definition-name (x)`
-
+### klass-slot-definition-name (x)
 
 
 <ul>
@@ -299,9 +354,7 @@ what is a slot's name?
 </ul>
 
 
-
-### `args `
-
+### args 
 
 
 <ul>
@@ -311,9 +364,7 @@ what are the command line args?
 </ul>
 
 
-
-### `stop `
-
+### stop 
 
 
 <ul>
@@ -323,9 +374,7 @@ how to halt the program?
 </ul>
 
 
-
-### `sh (cmd)`
-
+### sh (cmd)
 
 
 <ul>
@@ -336,14 +385,20 @@ Run a shwll command
 
 
 
-
--------
-
-## [readmes.lisp](readmes.lisp)
+## [readmes.lisp](src/readmes.lisp)
 
 
-### `doread ((it f &optional out &key (take #'read)) &body body)`
 
+
+<ul>
+
+Generate ../README.md from docstrings.
+
+</ul>
+
+
+
+### doread ((it f &optional out &key (take #'read)) &body body)
 
 
 <ul>
@@ -353,9 +408,7 @@ Iterator for running over files or strings.
 </ul>
 
 
-
-### `readme (dir &optional (s t))`
-
+### readme (dir &optional (s t))
 
 
 <ul>
@@ -366,14 +419,20 @@ Generate README.md from doco strings from LISP code in a directory.
 
 
 
-
--------
-
-## [rows.lisp](rows.lisp)
+## [rows.lisp](src/rows.lisp)
 
 
-### `add ((i rows) lst)`
 
+
+<ul>
+
+Manage rows of data, plus summaries of each col.
+
+</ul>
+
+
+
+### add ((i rows) lst)
 
 
 <ul>
@@ -383,9 +442,7 @@ simply add one `lst` of data to `i`
 </ul>
 
 
-
-### `adds ((i rows) lst)`
-
+### adds ((i rows) lst)
 
 
 <ul>
@@ -396,17 +453,21 @@ Add N things, skipping any `ignore?`ed columns.
 
 
 
-
--------
-
-## [sandbox.lisp](sandbox.lisp)
+## [sandbox.lisp](src/sandbox.lisp)
 
 
 
--------
 
-## [strings.lisp](strings.lisp)
+<ul>
 
+Sandbox playpen. Ignore.
+
+</ul>
+
+
+
+
+## [strings.lisp](src/strings.lisp)
 
 
 
@@ -419,9 +480,7 @@ Misc string tricks
 
 
 
-
-### `words (s &optional (lo 0) (hi (position , s start (1+ lo))))`
-
+### words (s &optional (lo 0) (hi (position , s start (1+ lo))))
 
 
 <ul>
@@ -431,14 +490,12 @@ Separate a string `s` on commas
 </ul>
 
 
-
-### `lines 
+### lines 
 (s &optional (lo 0)
  (hi
   (position
    
-   s start (1+ lo))))`
-
+   s start (1+ lo))))
 
 
 <ul>
@@ -448,9 +505,7 @@ Separate a string `s` on newline.
 </ul>
 
 
-
-### `with-csv ((line file) &body body)`
-
+### with-csv ((line file) &body body)
 
 
 <ul>
@@ -461,50 +516,113 @@ Return one list per line, words separated by commas.
 
 
 
-
--------
-
-## [yes.lisp](yes.lisp)
+## [yes.lisp](src/yes.lisp)
 
 
 
--------
 
-## [yes_col.lisp](yes_col.lisp)
+<ul>
 
+A simple test engine.
 
-
--------
-
-## [yes_data.lisp](yes_data.lisp)
+</ul>
 
 
 
--------
 
-## [yes_is.lisp](yes_is.lisp)
-
-
-
--------
-
-## [yes_macros.lisp](yes_macros.lisp)
+## [yes_col.lisp](src/yes_col.lisp)
 
 
 
--------
 
-## [yes_my.lisp](yes_my.lisp)
+<ul>
 
+Tests for `col.lisp`.
 
-
--------
-
-## [yes_rows.lisp](yes_rows.lisp)
+</ul>
 
 
 
--------
 
-## [yes_yes.lisp](yes_yes.lisp)
+## [yes_data.lisp](src/yes_data.lisp)
+
+
+
+
+<ul>
+
+Data for tests.
+
+</ul>
+
+
+
+
+## [yes_is.lisp](src/yes_is.lisp)
+
+
+
+
+<ul>
+
+Tests for `is.lisp`.
+
+</ul>
+
+
+
+
+## [yes_macros.lisp](src/yes_macros.lisp)
+
+
+
+
+<ul>
+
+Tests for `macros.lisp`.
+
+</ul>
+
+
+
+
+## [yes_my.lisp](src/yes_my.lisp)
+
+
+
+
+<ul>
+
+Tests for `my.lisp`.
+
+</ul>
+
+
+
+
+## [yes_rows.lisp](src/yes_rows.lisp)
+
+
+
+
+<ul>
+
+Tests for  `rows.lisp`.
+
+</ul>
+
+
+
+
+## [yes_yes.lisp](src/yes_yes.lisp)
+
+
+
+
+<ul>
+
+Tests for the test engine `yes.lisp`.
+
+</ul>
+
 

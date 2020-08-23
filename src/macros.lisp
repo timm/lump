@@ -1,3 +1,4 @@
+"Useful macros."
 ; vim: noai:ts=2:sw=2:et: 
 
 (defmacro while (test &body body) 

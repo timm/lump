@@ -1,3 +1,4 @@
+"Sandbox playpen. Ignore."
 (defclass bank-account ()
   ((customer-name
      :initarg :customer-name)

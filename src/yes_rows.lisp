@@ -1,3 +1,4 @@
+"Tests for  `rows.lisp`."
 ; vim: noai:ts=2:sw=2:et: 
 (load "got")
 (got "rows" "yes" "yes_data")

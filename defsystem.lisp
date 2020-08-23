@@ -16,6 +16,7 @@
                             (:file "got")
                             (:file "is")
                             (:file "macros")
+                            (:file "misc")
                             (:file "my")
                             (:file "oo")
                             (:file "os")
