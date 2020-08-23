@@ -22,7 +22,7 @@
                    #'(lambda (x y) (string< (pathname-name x) 
                                             (pathname-name y)))))
     (let ((name (pathname-name f)))
-      (format t "~%~%-------~%~%## [~a.lisp](src/~a.lisp)~%~%" name name)
+      (format t "~%~%## [~a.lisp](src/~a.lisp)~%~%" name name)
       (doread (x f)
         (labels
           ((defp   () (and (consp x)

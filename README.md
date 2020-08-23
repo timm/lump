@@ -107,8 +107,6 @@ The following details are extracted from my code's docstrings.
 
 
 
--------
-
 ## [bins.lisp](src/bins.lisp)
 
 
@@ -122,8 +120,6 @@ Discretizing and ranking columns of data.
 
 
 
-
--------
 
 ## [col.lisp](src/col.lisp)
 
@@ -151,8 +147,6 @@ report their mode and entropy.
 
 
 
--------
-
 ## [got.lisp](src/got.lisp)
 
 
@@ -167,8 +161,6 @@ Load control (never load the same thing twice).
 
 
 
--------
-
 ## [is.lisp](src/is.lisp)
 
 
@@ -182,8 +174,6 @@ Define bunch of magic symbols.
 
 
 
-
--------
 
 ## [macros.lisp](src/macros.lisp)
 
@@ -249,8 +239,6 @@ Item `one` is found at `pos` in `lst`. Returns `out`.
 
 
 
--------
-
 ## [misc.lisp](src/misc.lisp)
 
 
@@ -264,8 +252,6 @@ Misc stuff that belongs nowhere else.
 
 
 
-
--------
 
 ## [my.lisp](src/my.lisp)
 
@@ -290,8 +276,6 @@ getter for globals
 </ul>
 
 
-
--------
 
 ## [oo.lisp](src/oo.lisp)
 
@@ -336,8 +320,6 @@ For `thing` classes, print all public slots
 </ul>
 
 
-
--------
 
 ## [os.lisp](src/os.lisp)
 
@@ -403,8 +385,6 @@ Run a shwll command
 
 
 
--------
-
 ## [readmes.lisp](src/readmes.lisp)
 
 
@@ -438,8 +418,6 @@ Generate README.md from doco strings from LISP code in a directory.
 </ul>
 
 
-
--------
 
 ## [rows.lisp](src/rows.lisp)
 
@@ -475,8 +453,6 @@ Add N things, skipping any `ignore?`ed columns.
 
 
 
--------
-
 ## [sandbox.lisp](src/sandbox.lisp)
 
 
@@ -490,8 +466,6 @@ Sandbox playpen. Ignore.
 
 
 
-
--------
 
 ## [strings.lisp](src/strings.lisp)
 
@@ -542,8 +516,6 @@ Return one list per line, words separated by commas.
 
 
 
--------
-
 ## [yes.lisp](src/yes.lisp)
 
 
@@ -557,8 +529,6 @@ A simple test engine.
 
 
 
-
--------
 
 ## [yes_col.lisp](src/yes_col.lisp)
 
@@ -574,8 +544,6 @@ Tests for `col.lisp`.
 
 
 
--------
-
 ## [yes_data.lisp](src/yes_data.lisp)
 
 
@@ -589,8 +557,6 @@ Data for tests.
 
 
 
-
--------
 
 ## [yes_is.lisp](src/yes_is.lisp)
 
@@ -606,8 +572,6 @@ Tests for `is.lisp`.
 
 
 
--------
-
 ## [yes_macros.lisp](src/yes_macros.lisp)
 
 
@@ -621,8 +585,6 @@ Tests for `macros.lisp`.
 
 
 
-
--------
 
 ## [yes_my.lisp](src/yes_my.lisp)
 
@@ -638,8 +600,6 @@ Tests for `my.lisp`.
 
 
 
--------
-
 ## [yes_rows.lisp](src/yes_rows.lisp)
 
 
@@ -653,8 +613,6 @@ Tests for  `rows.lisp`.
 
 
 
-
--------
 
 ## [yes_yes.lisp](src/yes_yes.lisp)
 
