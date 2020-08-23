@@ -21,7 +21,7 @@
                    #'(lambda (x y) (string< (pathname-name x) 
                                             (pathname-name y)))))
     (let ((name (pathname-name f)))
-      (format t "~%~%-------~%~%## [~a.lisp](~a.lisp)~%~%" name name)
+      (format t "~%~%-------~%~%## [~a.lisp](src/~a.lisp)~%~%" name name)
       (doread (x f)
         (labels
           ((defp   () (and (consp x)
@@ -35,7 +35,7 @@
                               (stringp (fourth x))
                               (not (equal "" (fourth x)))))
            (dump   (str  &optional (pad ""))
-                   (format s "~%~%<ul>~%~%~a~a~%~%</ul>~%~%" pad str)))
+                   (format s "~%<ul>~%~a~a~%</ul>~%" pad str)))
           (when (fyip)
             (terpri s) (terpri s)
             (dump x)
