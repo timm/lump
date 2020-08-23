@@ -22,6 +22,7 @@ Github:
 Bash:
   doco       generated README.md fro docstrings in src/*.lisp
   ls         ls -G
+  publish    update all we can, push back to the web
   reload     . $Lump/lump
   tmux       tmux -f $Lump/.var/tmuxrc
   vi         vim    -u $Lump/.var/vimrc
@@ -54,6 +55,10 @@ scl()  { sbcl --script $1.lisp;  }
 ccl()  { clisp $1.lisp;  }
 here() { cd $1; basename `pwd`; }    
 vims() { vim -u $Lump/.var/vimrc +PluginInstall +qall; }
+
+publish() {
+ reload; doco; system; gp
+}
 
 (cd $Lump/../src;
 for i in *.lisp; do

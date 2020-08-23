@@ -366,6 +366,18 @@ simply add one `lst` of data to `i`
 
 
 
+### `adds ((i rows) lst)`
+
+
+
+<ul>
+
+Add N things, skipping any `ignore?`ed columns.
+
+</ul>
+
+
+
 
 -------
 
