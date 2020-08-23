@@ -138,7 +138,7 @@ Summarizing columns of data.
 
 <ul>
 
-Columns can be either `num`eric or `sym`bolic  
+Columns can be either `num`eric or `sym`bolic
 data. `Num`s can report their mean and standard deviation while `Sym`s can
 report their mode and entropy.
 
