@@ -1,3 +1,4 @@
+"Data for tests."
 ; vim: noai:ts=2:sw=2:et: 
 
 (defvar *data*

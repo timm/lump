@@ -1,5 +1,5 @@
-; vim: noai:ts=2:sw=2:et: 
 "Misc string tricks"
+; vim: noai:ts=2:sw=2:et: 
 
 (defun words (s &optional 
                 (lo 0) 

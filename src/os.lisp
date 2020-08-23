@@ -1,3 +1,4 @@
+"Operating system specific code."
 ; vim: noai:ts=2:sw=2:et: 
 
 (defun klass-slots (it)

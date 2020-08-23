@@ -113,6 +113,16 @@ The following details are extracted from my code's docstrings.
 
 
 
+
+<ul>
+
+Discretizing and ranking columns of data.
+
+</ul>
+
+
+
+
 -------
 
 ## [col.lisp](src/col.lisp)
@@ -122,7 +132,17 @@ The following details are extracted from my code's docstrings.
 
 <ul>
 
-Code for incrementally managing summaries of  `num`eric or `sym`bolic  
+Summarizing columns of data.
+
+</ul>
+
+
+
+
+
+<ul>
+
+Columns can be either `num`eric or `sym`bolic  
 data. `Num`s can report their mean and standard deviation while `Sym`s can
 report their mode and entropy.
 
@@ -137,15 +157,45 @@ report their mode and entropy.
 
 
 
+
+<ul>
+
+Load control (never load the same thing twice).
+
+</ul>
+
+
+
+
 -------
 
 ## [is.lisp](src/is.lisp)
 
 
 
+
+<ul>
+
+Define bunch of magic symbols.
+
+</ul>
+
+
+
+
 -------
 
 ## [macros.lisp](src/macros.lisp)
+
+
+
+
+<ul>
+
+Useful macros.
+
+</ul>
+
 
 
 ### while (test &body body)
@@ -201,7 +251,33 @@ Item `one` is found at `pos` in `lst`. Returns `out`.
 
 -------
 
+## [misc.lisp](src/misc.lisp)
+
+
+
+
+<ul>
+
+Misc stuff that belongs nowhere else.
+
+</ul>
+
+
+
+
+-------
+
 ## [my.lisp](src/my.lisp)
+
+
+
+
+<ul>
+
+Define globals.
+
+</ul>
+
 
 
 ### my (&rest fs)
@@ -218,6 +294,16 @@ getter for globals
 -------
 
 ## [oo.lisp](src/oo.lisp)
+
+
+
+
+<ul>
+
+Simpler OO in LISP.
+
+</ul>
+
 
 
 ### defthing (x parent &rest slots)
@@ -254,6 +340,16 @@ For `thing` classes, print all public slots
 -------
 
 ## [os.lisp](src/os.lisp)
+
+
+
+
+<ul>
+
+Operating system specific code.
+
+</ul>
+
 
 
 ### klass-slots (it)
@@ -312,6 +408,16 @@ Run a shwll command
 ## [readmes.lisp](src/readmes.lisp)
 
 
+
+
+<ul>
+
+Generate ../README.md from docstrings.
+
+</ul>
+
+
+
 ### doread ((it f &optional out &key (take #'read)) &body body)
 
 
@@ -338,6 +444,16 @@ Generate README.md from doco strings from LISP code in a directory.
 ## [rows.lisp](src/rows.lisp)
 
 
+
+
+<ul>
+
+Manage rows of data, plus summaries of each col.
+
+</ul>
+
+
+
 ### add ((i rows) lst)
 
 
@@ -362,6 +478,16 @@ Add N things, skipping any `ignore?`ed columns.
 -------
 
 ## [sandbox.lisp](src/sandbox.lisp)
+
+
+
+
+<ul>
+
+Sandbox playpen. Ignore.
+
+</ul>
+
 
 
 
@@ -422,9 +548,29 @@ Return one list per line, words separated by commas.
 
 
 
+
+<ul>
+
+A simple test engine.
+
+</ul>
+
+
+
+
 -------
 
 ## [yes_col.lisp](src/yes_col.lisp)
+
+
+
+
+<ul>
+
+Tests for `col.lisp`.
+
+</ul>
+
 
 
 
@@ -434,9 +580,29 @@ Return one list per line, words separated by commas.
 
 
 
+
+<ul>
+
+Data for tests.
+
+</ul>
+
+
+
+
 -------
 
 ## [yes_is.lisp](src/yes_is.lisp)
+
+
+
+
+<ul>
+
+Tests for `is.lisp`.
+
+</ul>
+
 
 
 
@@ -446,9 +612,29 @@ Return one list per line, words separated by commas.
 
 
 
+
+<ul>
+
+Tests for `macros.lisp`.
+
+</ul>
+
+
+
+
 -------
 
 ## [yes_my.lisp](src/yes_my.lisp)
+
+
+
+
+<ul>
+
+Tests for `my.lisp`.
+
+</ul>
+
 
 
 
@@ -458,7 +644,27 @@ Return one list per line, words separated by commas.
 
 
 
+
+<ul>
+
+Tests for  `rows.lisp`.
+
+</ul>
+
+
+
+
 -------
 
 ## [yes_yes.lisp](src/yes_yes.lisp)
+
+
+
+
+<ul>
+
+Tests for the test engine `yes.lisp`.
+
+</ul>
+
 

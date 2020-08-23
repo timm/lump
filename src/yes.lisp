@@ -1,3 +1,4 @@
+"A simple test engine."
 ; vim: noai:ts=2:sw=2:et: 
 (load "got")
 (got "my")

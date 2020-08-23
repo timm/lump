@@ -1,3 +1,4 @@
+"Simpler OO in LISP."
 ; vim: ts=2 sw=2 et:
 (load "got")
 (got "my" "macros" "os")

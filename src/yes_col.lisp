@@ -1,3 +1,4 @@
+"Tests for `col.lisp`."
 ; vim: noai:ts=2:sw=2:et: 
 (load "got")
 (got "col" "test")

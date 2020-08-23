@@ -1,8 +1,9 @@
+"Summarizing columns of data."
 ; vim: noai:ts=2:sw=2:et: 
 (load "got")
 (got "oo" "is")
 
-"Code for incrementally managing summaries of  `num`eric or `sym`bolic  
+"Columns can be either `num`eric or `sym`bolic  
 data. `Num`s can report their mean and standard deviation while `Sym`s can
 report their mode and entropy."
 

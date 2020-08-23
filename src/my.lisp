@@ -1,3 +1,4 @@
+"Define globals."
 ; vim: noai:ts=2:sw=2:et: 
 (load "got")
 (got "macros")
@@ -22,7 +23,3 @@
 (defmacro my (&rest fs) 
    "getter for globals"
    `(getr getf *my* ,@fs))
-
-(defun skip? (x) 
-   (and (stringp x)
-        (eql x (my ch skip))))
