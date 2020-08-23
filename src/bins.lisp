@@ -1,23 +1,15 @@
 "Discretizing and ranking columns of data."
 ; vim: noai:ts=2:sw=2:et: 
 (load "got")
-(got "rows")
+(got "misc" "rows")
 
-(defthing posval thing (pos 0) (val))
 
 (defthing bin thing 
   (x)
   (score 0)
   (ys (make-hash-table :test 'equalp))
-  (lo (make-instance 'posval))
-  (hi (make-instance 'posval)))
-
-(defmethod within ((x number) (y number) (z number))
-  (<= x y z))
-
-(defmethod within ((x string) (y string) (z string))
-  (and (string-equal x y)
-       (string-equal y z)))
+  (lo '(pos 0 val 0))
+  (hi '(pos 0 val 0)))
 
 (defmethod selects ((i bin) row)
   (within (? i lo val)
