@@ -8,6 +8,8 @@
                     more  #\>
                     num   #\$
                     klass #\!)
+         bins (     max 512 
+              )
          some (     max 512 
                     step .5 
                     cohen .3 

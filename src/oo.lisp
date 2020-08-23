@@ -18,8 +18,15 @@
            :accessor ,(intern (format nil "~a-~a" x slot))))))
 
 ;;; pretty print (skipping private slots) --------
+(defmethod print-object ((object hash-table) stream)
+  "Pretty print hash tables."
+  (format stream "#HASH{~{~{(~a : ~a)~}~^ ~}}"
+          (loop for key being the hash-keys of object
+                using (hash-value value)
+                collect (list key value))))
+
 (defmethod print-object ((it thing) out)
-  "for things, print all public slots"
+  "For `thing` classes, print all public slots"
   (let ((lst (mapcar
                #'(lambda (s) (list s (slot-value it s)))
                (sort (_public-slot-names it) #'string<))))

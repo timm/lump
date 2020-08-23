@@ -11,6 +11,7 @@
   :components ((:module "src"
                 :serial t
                 :components (
+                            (:file "bins")
                             (:file "col")
                             (:file "got")
                             (:file "is")
@@ -29,6 +30,6 @@
                             (:file "yes_macros")
                             (:file "yes_my")
                             (:file "yes_rows")
-                            (:file "yes_test")
+                            (:file "yes_yes")
        )))
   :long-description #.(uiop:read-file-string (uiop:subpathname *load-pathname* "README.md")))

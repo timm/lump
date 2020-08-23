@@ -109,6 +109,12 @@ The following details are extracted from my code's docstrings.
 
 -------
 
+## [bins.lisp](bins.lisp)
+
+
+
+-------
+
 ## [col.lisp](col.lisp)
 
 
@@ -240,13 +246,25 @@ Succinct class creation
 
 
 
+### `print-object ((object hash-table) stream)`
+
+
+
+<ul>
+
+Pretty print hash tables.
+
+</ul>
+
+
+
 ### `print-object ((it thing) out)`
 
 
 
 <ul>
 
-for things, print all public slots
+For `thing` classes, print all public slots
 
 </ul>
 
@@ -488,5 +506,5 @@ Return one list per line, words separated by commas.
 
 -------
 
-## [yes_test.lisp](yes_test.lisp)
+## [yes_yes.lisp](yes_yes.lisp)
 
