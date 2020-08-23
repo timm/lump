@@ -9,9 +9,8 @@
     (string-trim '(#\Space #\Tab #\Newline) (subseq s lo hi))
     (if hi (words s (1+ hi)))))
 
-(defun lines (s &optional 
-                (lo 0) 
-                (hi (position #\Newline s :start (1+ lo))))
+(defun lines (s &optional (lo 0) 
+              (hi (position #\Newline s :start (1+ lo))))
   "Separate a string `s` on newline."
   (cons (words (subseq s lo hi)) 
         (if hi (lines s (1+ hi)))))
