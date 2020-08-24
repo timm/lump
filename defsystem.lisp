@@ -25,6 +25,7 @@
                             (:file "sandbox")
                             (:file "strings")
                             (:file "yes")
+                            (:file "yes_bins")
                             (:file "yes_col")
                             (:file "yes_data")
                             (:file "yes_is")

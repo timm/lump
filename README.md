@@ -121,6 +121,65 @@ Discretizing and ranking columns of data.
 
 
 
+
+<ul>
+
+A `bin` is some subrange within the values of a column.
+These are defined by the the column number
+the refer too, and the min and max value in each bin.
+These can also be e ranked according to how well they
+predict for some target class.
+
+</ul>
+
+
+
+### selects ((i bin) row)
+
+
+<ul>
+
+Does this `row` have a value that falls into this bin?
+
+</ul>
+
+
+### score ((i bin) all &aux (e 1.0e-7))
+
+
+<ul>
+
+Updates this bin's `score` for how well it predicts 
+  for the class. If the target and everything else
+  occurs at frequency n1 n2 and in this range we
+  see the target class at frequency m1 m2, then
+  `best = b = m1/(n1+n2)`, and `rest=r=m2/(n1+n2)`
+  and this range's score is `b^2/(b+r)`.
+
+</ul>
+
+
+### join ((i bin) (j bin))
+
+
+<ul>
+
+Return a new range that stretches across both `i` and `j`.
+
+</ul>
+
+
+### add2 ((i bin) y want)
+
+
+<ul>
+
+Update how often a bin sees the target class (or otherwise).
+
+</ul>
+
+
+
 ## [col.lisp](src/col.lisp)
 
 
@@ -296,16 +355,6 @@ Simpler OO in LISP.
 <ul>
 
 Succinct class creation
-
-</ul>
-
-
-### print-object ((object hash-table) stream)
-
-
-<ul>
-
-Pretty print hash tables.
 
 </ul>
 
@@ -524,6 +573,20 @@ Return one list per line, words separated by commas.
 <ul>
 
 A simple test engine.
+
+</ul>
+
+
+
+
+## [yes_bins.lisp](src/yes_bins.lisp)
+
+
+
+
+<ul>
+
+Tests for the test engine `bins.lisp`.
 
 </ul>
 
