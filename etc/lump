@@ -67,7 +67,7 @@ for i in *.lisp; do
 done
 )
 
-PROMPT_COMMAND='echo -ne "💫 $(git branch 2>/dev/null | grep '^*' | colrm 1 2):";PS1="$(here ..)/$(here .):\!\e[m ▶ "'     
+PROMPT_COMMAND='echo -ne " 💫 $(git branch 2>/dev/null | grep '^*' | colrm 1 2):";PS1="$(here ..)/$(here .):\!\e[m ▶ "'     
 
 system() { cat <<'EOF'> $Lump/../defsystem.lisp
 (defsystem lump

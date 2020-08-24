@@ -1,10 +1,10 @@
 "Discretizing and ranking columns of data."
 ; vim: noai:ts=2:sw=2:et: 
 (load "got")
-(got "misc" "rows")
+(got "my" "rows")
 
 "A `bin` is some subrange within the values of a column.
-These are defined by the the column number
+These are defined by the column number
 the refer too, and the min and max value in each bin.
 These can also be e ranked according to how well they
 predict for some target class."
@@ -21,6 +21,9 @@ predict for some target class."
   (lo   (make-instance 'posval))
   (hi   (make-instance 'posval)))
 
+(defthing numbin bin)
+(defthing symbin bin)
+ 
 ;;; A bin is a subrange within a column --------- 
 (defmethod initialize-instance :around ((i bin) &key goal x yes no)
   (call-next-method 
@@ -30,11 +33,15 @@ predict for some target class."
     :yes (make-instance 'myall :my 0 :all yes)
     :no  (make-instance 'myall :my 0 :all no)))
 
-(defmethod selects ((i bin) row)
+(defmethod selects ((i numbin) row)
   "Does this `row` have a value that falls into this bin?"
-  (within (? i lo val)
+  (<=  (? i lo val)
           (elt (? row cells) (? i col))
           (? i hi val)))
+
+(defmethod selects ((i symbin) row)
+  "Does this `row` have a value that falls into this bin?"
+  (equalp  (? i lo val) (elt (? row cells) (? i col))))
 
 (defmethod score ((i bin) all)
   "Updates this bin's `score` for how well it predicts 
@@ -45,8 +52,8 @@ predict for some target class."
   and this range's score is `b^2/(b+r)`."
   (let* ((eps  0.000001)
          (my1  (? i yes my))
-         (my2  (? i no  my))
          (all1 (? i yes all))
+         (my2  (? i no  my))
          (all2 (? i no  all))
          (n    (+ all1 all2))
          (b    (/ my1     (+ eps all1)))
@@ -61,8 +68,8 @@ predict for some target class."
               :yes (? i yes all) :no (? i no all))))
      (setf (? k lo pos) (? i lo pos)
            (? k hi pos) (? j hi pos)
-           (? k yes my) (+ (? i yes my) (?i j yes my))
-           (? k no  my) (+ (? i no  my) (?i j no  my)))
+           (? k yes my) (+ (? i yes my) (? j yes my))
+           (? k no  my) (+ (? i no  my) (? j no  my)))
      k))
 
 (defmethod add ((i bin) y )
@@ -83,6 +90,6 @@ predict for some target class."
           (unless (gethash xx bins)
             (setf (gethash xx bins) 
                   (make-instance 
-                    'bin :col x :goal goal :yes yes :no no)))
+                    'symbin :col x :goal goal :yes yes :no no)))
           (add (gethash xx bins) yy))))))
 
