@@ -5,21 +5,34 @@
 
 (defthing rows thing (all) (cols (make-instance 'cols)))
 (defthing row thing (cells) (_rows))
-(defthing cols thing (all) (nums) (syms) (x) (y) (klass))
+(defthing cols thing (all) (nums) (syms) 
+  (xnums) (xsyms) (x) (y) (klass))
 
 ;;; columns -------------------------------------
 (defmethod header ((i cols) headers)
-  (with-slots (all nums syms x y klass) i
-    (doitems (txt pos (reverse headers))
+  (with-slots (all nums syms xsyms xnums x y klass) i
+    (doitems (txt pos headers)
       (let ((new (make-instance 
                    (if (num? txt) 'num 'sym)
                    :txt txt :pos pos
                    :w (if (less? txt) -1 1))))
+        (push new all)
         (if (num?  txt) (push new nums) (push new syms))
         (if (goal? txt) (push new y)    (push new x))
-        (push new all)
-        (if (klass? txt)
-          (setf klass new))))))
+        (when (klass? txt)
+          (setf klass new))
+        (unless (goal? txt)
+          (print `(notgoal ,txt))
+          (if (num?  txt) 
+            (push new xnums) 
+            (push new xsyms)))))
+    (setf xnums (reverse xnums)
+          xsyms (reverse xsyms)
+          nums  (reverse nums)
+          syms  (reverse syms)
+          x     (reverse x)
+          all   (reverse all)
+          y     (reverse y))))
 
 (defmethod row ((i cols) rows cells)
   (make-instance 
@@ -32,7 +45,6 @@
 (defmethod add ((i rows) lst)
  "simply add one `lst` of data to `i`"
   (with-slots (all cols) i
-    ;(format t ">>~a~%" lst)
     (if (? cols all)
       (push (row cols i lst) all)
       (header cols lst))))
@@ -49,5 +61,4 @@
     (let ((using (use? lst)))
       (dolist (one lst i)
         (add i (use! using one))))))
-
 

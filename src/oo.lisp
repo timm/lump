@@ -19,6 +19,7 @@
            :accessor ,(intern (format nil "~a-~a" x slot))))))
 
 ;;; pretty print (skipping private slots) --------
+#+sbcl
 (defmethod print-object ((object hash-table) stream)
   "Pretty print hash tables."
   (format stream "#HASH{~{~{(~a : ~a)~}~^ ~}}"

@@ -17,17 +17,18 @@
           (? i hi val)))
 
 (defmethod score ((i bin) all &aux (e 0.0000001))
-  (let ((yes (/ (gethash 1 (? i ys) 0)
-                (+ e (gethash 1 all 0))))
-         (no (/ (gethash 0 (? i ys) 0)
-                (+ e (gethash 0 all 0))))
-         (tmp (float (/ (* yes yes) i
-                     (+ e yes no)))))
+  (print 22)
+  (let* ((yes   (/   (gethash 1 (? i   ys) 0)
+                (+ e (gethash 1 (? all ys) 0))))
+         (no    (/   (gethash 0 (? i   ys) 0)
+                (+ e (gethash 0 (? all ys) 0))))
+         (tmp  (float (/ (* yes yes) 
+                         (+ e yes no)))))
    (setf (? i score)
          (if (< tmp 0.01) 0 tmp))
    i))
 
-(defmethod merge ((i bin) (j bin))
+(defmethod join ((i bin) (j bin))
   (let ((k (make-instance :x (? i x))))
      (setf (? k lo pos) (? i lo pos)
            (? k hi pos) (? j hi pos))
@@ -38,15 +39,14 @@
      k))
 
 (defmethod add2 ((i bin) y want)
-  (incf (gethash (if (eql y want) 1 0) 
-                 (? i ys) 
-                 0)))
+  (let ((k (if (equalp y want) 1 0)))
+    (incf (gethash k (? i ys) 0))))
 
 ;;; symbolic columns ----------------------------
-(defun syms2bins (lst &keys goal (x 0) (y (1- (length lst))))
+(defun syms2bins (lst &key goal (x 0) (y (1- (length lst))))
    (let (out
          (bins (make-hash-table :test #'equalp)) 
-         (all (make-instance 'bin :x x)))
+         (all  (make-instance 'bin :x x)))
       (dolist (row lst)
         (let ((xx  (elt (? row cells) x))
               (yy  (elt (? row cells) y)))
@@ -54,9 +54,8 @@
             (unless (gethash xx bins)
                (setf (gethash xx bins)
                      (make-instance 'bin :x x ))))
-           (add2 all goal)
-           (add2 (gethash xx bins))))
-      (do-hash (k v bins out)
-         (push (score v all) out))))
-      
+           (add2 all yy goal)
+           (add2 (gethash xx bins) yy goal)))
+      (do-hash (k v bins out) 
+               (push (score v all) out))))
 
