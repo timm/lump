@@ -10,68 +10,79 @@ These can also be e ranked according to how well they
 predict for some target class."
 
 (defthing posval  thing (pos 0) (val 0))
+(defthing myall   thing (my 0) (all 0))
  
 (defthing bin thing 
   (col)
+  (goal)
   (score 0)
-  (ys (make-hash-table :test 'equalp))
-  (lo (makeinstance 'posval))
-  (hi (makeinstance 'posval)))
+  (yes  (make-instance 'myall))
+  (no   (make-instance 'myall))
+  (lo   (make-instance 'posval))
+  (hi   (make-instance 'posval)))
 
 ;;; A bin is a subrange within a column --------- 
+(defmethod initialize-instance :around ((i bin) &key goal x yes no)
+  (call-next-method 
+    i 
+    :x x
+    :goal goal
+    :yes (make-instance 'myall :my 0 :all yes)
+    :no  (make-instance 'myall :my 0 :all no)))
+
 (defmethod selects ((i bin) row)
   "Does this `row` have a value that falls into this bin?"
   (within (? i lo val)
           (elt (? row cells) (? i col))
           (? i hi val)))
 
-(defmethod score ((i bin) all &aux (e 0.0000001))
+(defmethod score ((i bin) all)
   "Updates this bin's `score` for how well it predicts 
   for the class. If the target and everything else
-  occurs at frequency n1 n2 and in this range we
-  see the target class at frequency m1 m2, then
-  `best = b = m1/(n1+n2)`, and `rest=r=m2/(n1+n2)`
+  occurs at frequency my1 my2 and in this range 
+  see the target class at frequency al1 all2, then
+  `n= all1+all2` and `best = b = my1/n`, and `rest=r=m2/n`
   and this range's score is `b^2/(b+r)`."
-  (let* ((yes   (/   (gethash 1 (? i   ys) 0)
-                (+ e (gethash 1 (? all ys) 0))))
-         (no    (/   (gethash 0 (? i   ys) 0)
-                (+ e (gethash 0 (? all ys) 0))))
-         (tmp  (float (/ (* yes yes) 
-                         (+ e yes no)))))
-   (setf (? i score)
-         (if (< tmp 0.01) 0 tmp))
-   i))
+  (let* ((eps  0.000001)
+         (my1  (? i yes my))
+         (my2  (? i no  my))
+         (all1 (? i yes all))
+         (all2 (? i no  all))
+         (n    (+ all1 all2))
+         (b    (/ my1     (+ eps all1)))
+         (r    (/ my2     (+ eps all2)))
+         (s    (/ (* b b) (+ eps b r))))
+    (if (< s 0.01) 0 (float s))))
 
 (defmethod join ((i bin) (j bin))
-  "Return a new range that stretches across both `i` and `j`."
-  (let ((k (make-instance :x (? i x))))
+  "Return a new range that stretches across `i` and `j`."
+  (let ((k (make-instance 'bin 
+              :col (? i x) :goal (? i goal) 
+              :yes (? i yes all) :no (? i no all))))
      (setf (? k lo pos) (? i lo pos)
-           (? k hi pos) (? j hi pos))
-     (do-hash (key val (? i ys))
-       (setf (gethash key (? k ys)) val))
-     (do-hash (key val (? j ys))
-       (incf (gethash key (? k ys 0)) val))
+           (? k hi pos) (? j hi pos)
+           (? k yes my) (+ (? i yes my) (?i j yes my))
+           (? k no  my) (+ (? i no  my) (?i j no  my)))
      k))
 
-(defmethod add2 ((i bin) y want)
+(defmethod add ((i bin) y )
   "Update how often a bin sees the target class (or otherwise)."
-  (let ((k (if (equalp y want) 1 0)))
-    (incf (gethash k (? i ys) 0))))
+  (if (equalp y (? i goal)) 
+    (incf (? i yes my))
+    (incf (? i no my)))
+  (setf (? i score) (score i))
+  i)
 
 ;;; symbolic columns ----------------------------
-(defun syms2bins (lst &key goal (x 0) (y (1- (length lst))))
-   (let (out
-         (bins (make-hash-table :test #'equalp)) 
-         (all  (make-instance 'bin :x x)))
-      (dolist (row lst)
-        (let ((xx  (elt (? row cells) x))
-              (yy  (elt (? row cells) y)))
-          (unless (ignore? xx)
-            (unless (gethash xx bins)
-               (setf (gethash xx bins)
-                     (make-instance 'bin :x x ))))
-           (add2 all yy goal)
-           (add2 (gethash xx bins) yy goal)))
-      (do-hash (k v bins out) 
-               (push (score v all) out))))
+(defun syms2bins (lst &key yes no goal x y)
+  (let ((bins (make-hash-table :test 'equalp)))
+    (dolist (row lst (hash-values bins))
+      (let ((xx  (elt (? row cells) x))
+            (yy  (elt (? row cells) y)))
+        (unless (ignore? xx)
+          (unless (gethash xx bins)
+            (setf (gethash xx bins) 
+                  (make-instance 
+                    'bin :col x :goal goal :yes yes :no no)))
+          (add (gethash xx bins) yy))))))
 

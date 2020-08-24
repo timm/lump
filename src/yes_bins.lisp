@@ -7,10 +7,17 @@
   (adds data (lines (getf *data* 'weather)))
   (print "")
   (print (? data cols xsyms))
+  (print (? data cols klass))
+
+  (let ((goal "yes")
+        (yes (gethash goal (? data cols klass seen)))
+        (no  (- (length (? data rows)) yes)))
   (dolist (xsym (? data cols xsyms))
     (dolist (bin (syms2bins (? data all)
+                            :yes yes :no no
                             :goal "yes"
                             :x (? xsym pos)
                             :y (? data cols klass pos)))
       (print `(score ,(? bin score) 
-                x ,(? bin x) ys ,(? bin ys))))))
+                col ,(? bin col) ys ,(? bin ys)))))
+                )

@@ -8,4 +8,5 @@
   (and (string-equal x y)
        (string-equal y z)))
 
-
+(defun hash-values (h)
+   (loop for v being the hash-values of h collect v))
