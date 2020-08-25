@@ -10,12 +10,12 @@
   (print (? data cols klass))
   (let* ((goal "yes")
         (yes (gethash goal (? data cols klass seen)))
-        (no  (- (length (? data rows)) yes)))
+        (no  (- (length (? data all)) yes)))
     (dolist (xsym (? data cols xsyms))
+      (print `(xysm ,xsym))
       (dolist (bin (syms2bins (? data all)
                               :yes yes :no no
-                              :goal "yes"
+                              :goal "yes" 
                               :x (? xsym pos)
                               :y (? data cols klass pos)))
-        (print `(score ,(? bin score) 
-                       col ,(? bin col) ys ,(? bin ys)))))))
+        (print bin)))))

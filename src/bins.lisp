@@ -1,7 +1,7 @@
 "Discretizing and ranking columns of data."
 ; vim: noai:ts=2:sw=2:et: 
 (load "got")
-(got "my" "rows")
+(got "my" "rows" "misc")
 
 "A `bin` is some subrange within the values of a column.
 These are defined by the column number
@@ -25,9 +25,11 @@ predict for some target class."
 (defthing symbin bin)
  
 ;;; A bin is a subrange within a column --------- 
-(defmethod initialize-instance :around ((i bin) &key goal x yes no)
+(defmethod initialize-instance :around ((i bin) 
+  &key col goal x yes no)
   (call-next-method 
     i 
+    :col col
     :x x
     :goal goal
     :yes (make-instance 'myall :my 0 :all yes)
@@ -36,14 +38,14 @@ predict for some target class."
 (defmethod selects ((i numbin) row)
   "Does this `row` have a value that falls into this bin?"
   (<=  (? i lo val)
-          (elt (? row cells) (? i col))
-          (? i hi val)))
+       (elt (? row cells) (? i col))
+       (? i hi val)))
 
 (defmethod selects ((i symbin) row)
   "Does this `row` have a value that falls into this bin?"
   (equalp  (? i lo val) (elt (? row cells) (? i col))))
 
-(defmethod score ((i bin) all)
+(defmethod score ((i bin))
   "Updates this bin's `score` for how well it predicts 
   for the class. If the target and everything else
   occurs at frequency my1 my2 and in this range 
