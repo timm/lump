@@ -1,6 +1,6 @@
 "Generate ../README.md from docstrings."
 ; vim: noai:ts=2:sw=2:et: 
-(load "os")
+#+lump (lump "os")
 
 (defmacro doread ((it f &optional out 
                       &key (take #'read)) &body body)

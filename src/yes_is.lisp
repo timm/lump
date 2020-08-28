@@ -1,7 +1,6 @@
 "Tests for `is.lisp`."
 ; vim: noai:ts=2:sw=2:et: 
-(load "got")
-(got "yes" "is")
+#+lump (lump "yes" "is")
 
 (dofun is()
   (yes (less?   "<cat")) (yes (not (less?   "cat")))

@@ -1,7 +1,6 @@
 "Define bunch of magic symbols."
 ; vim: noai:ts=20:sw=2:et: 
-(load "got")
-(got "my")
+#+lump (lump "my")
 
 (labels 
   ((is (x &rest l)

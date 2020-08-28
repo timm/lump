@@ -11,6 +11,12 @@ tput bold; tput setaf 2; cat <<'EOF'
 EOF
 tput sgr0
 
+for c in sbcl gawk; do
+  if [ -z `which $c` ]; then
+     >&2 echo "# W: please install $c"
+  fi
+done
+
 usage() { 
 tput bold; tput setaf 0; cat <<'EOF'
 
@@ -68,6 +74,10 @@ done
 )
 
 PROMPT_COMMAND='echo -ne " 💫 $(git branch 2>/dev/null | grep '^*' | colrm 1 2):";PS1="$(here ..)/$(here .):\!\e[m ▶ "'     
+ 
+lisp() {
+  sbcl --noinform --load lump.lisp --script $1.lisp  2> >( gawk ' /Backtrace/,/5:/ ' )
+}
 
 system() { cat <<'EOF'> $Lump/../defsystem.lisp
 (defsystem lump
@@ -500,4 +510,4 @@ bind S source-file $Tnix/.config/tmux-session1
 setw -g monitor-activity on
 set -g visual-activity on
 EOF
- 
+

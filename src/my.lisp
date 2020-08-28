@@ -1,7 +1,6 @@
 "Define globals."
 ; vim: noai:ts=2:sw=2:et: 
-(load "got")
-(got "macros")
+#+lump (lump "macros")
 
 (defvar *my*
        '(ch (     skip  #\?

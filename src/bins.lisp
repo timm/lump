@@ -1,7 +1,6 @@
 "Discretizing and ranking columns of data."
 ; vim: noai:ts=2:sw=2:et: 
-(load "got")
-(got "my" "rows" "misc")
+#+lump (lump "my" "rows" "misc")
 
 "A `bin` is some subrange within the values of a column.
 These are defined by the column number

@@ -1,9 +1,11 @@
 "Load control (never load the same thing twice)."
 ; vim: noai:ts=2:sw=2:et: 
 
+(pushnew :lump *FEATURES*)
+
 (defvar *gotten* nil)
 
-(defun got (&rest files)
+(defun lump (&rest files)
   (mapc 
     (lambda (f)
       (unless (member f *gotten* :test 'equalp)

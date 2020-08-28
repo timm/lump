@@ -1,7 +1,6 @@
 "Simpler OO in LISP."
 ; vim: ts=2 sw=2 et:
-(load "got")
-(got "my" "macros" "os")
+#+lump (lump "my" "macros" "os")
 
 ;;; base of all
 (let ((id 0))

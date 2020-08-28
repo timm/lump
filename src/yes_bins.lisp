@@ -1,7 +1,6 @@
 "Tests for the test engine `bins.lisp`."
 ; vim: noai:ts=2:sw=2:et: 
-(load "got")
-(got "yes" "bins" "yes_data")
+#+lump (lump "yes" "bins" "yes_data")
 
 (dofun weather (&aux (data (make-instance 'rows)))
   (adds data (lines (getf *data* 'weather)))

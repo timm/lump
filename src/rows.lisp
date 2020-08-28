@@ -1,7 +1,6 @@
 "Manage rows of data, plus summaries of each col."
 ; vim: noai:ts=2:sw=2:et: 
-(load "got")
-(got "oo" "is" "strings" "col")
+#+lump (lump "oo" "is" "strings" "col")
 
 (defthing rows thing (all) (cols (make-instance 'cols)))
 (defthing row thing (cells) (_rows))

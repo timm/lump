@@ -1,7 +1,6 @@
 "Tests for `my.lisp`."
 ; vim: noai:ts=2:sw=2:et: 
-(load   "got")
-(got "my" "yes")
+#+lump (lump "my" "yes")
                    
 (dofun the ()
    (print (my ch skip))

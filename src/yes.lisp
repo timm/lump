@@ -1,7 +1,6 @@
 "A simple test engine."
 ; vim: noai:ts=2:sw=2:et: 
-(load "got")
-(got "my")
+#+lump (lump "my")
 
 (defun yes (status)
   (format t "~&~a " (my yes it))
