@@ -125,7 +125,7 @@ Discretizing and ranking columns of data.
 <ul>
 
 A `bin` is some subrange within the values of a column.
-These are defined by the the column number
+These are defined by the column number
 the refer too, and the min and max value in each bin.
 These can also be e ranked according to how well they
 predict for some target class.
@@ -134,7 +134,7 @@ predict for some target class.
 
 
 
-### selects ((i bin) row)
+### selects ((i numbin) row)
 
 
 <ul>
@@ -144,16 +144,26 @@ Does this `row` have a value that falls into this bin?
 </ul>
 
 
-### score ((i bin) all &aux (e 1.0e-7))
+### selects ((i symbin) row)
+
+
+<ul>
+
+Does this `row` have a value that falls into this bin?
+
+</ul>
+
+
+### score ((i bin))
 
 
 <ul>
 
 Updates this bin's `score` for how well it predicts 
   for the class. If the target and everything else
-  occurs at frequency n1 n2 and in this range we
-  see the target class at frequency m1 m2, then
-  `best = b = m1/(n1+n2)`, and `rest=r=m2/(n1+n2)`
+  occurs at frequency my1 my2 and in this range 
+  see the target class at frequency al1 all2, then
+  `n= all1+all2` and `best = b = my1/n`, and `rest=r=m2/n`
   and this range's score is `b^2/(b+r)`.
 
 </ul>
@@ -164,12 +174,12 @@ Updates this bin's `score` for how well it predicts
 
 <ul>
 
-Return a new range that stretches across both `i` and `j`.
+Return a new range that stretches across `i` and `j`.
 
 </ul>
 
 
-### add2 ((i bin) y want)
+### add ((i bin) y)
 
 
 <ul>
@@ -206,20 +216,6 @@ report their mode and entropy.
 
 
 
-## [got.lisp](src/got.lisp)
-
-
-
-
-<ul>
-
-Load control (never load the same thing twice).
-
-</ul>
-
-
-
-
 ## [is.lisp](src/is.lisp)
 
 
@@ -228,6 +224,20 @@ Load control (never load the same thing twice).
 <ul>
 
 Define bunch of magic symbols.
+
+</ul>
+
+
+
+
+## [lump.lisp](src/lump.lisp)
+
+
+
+
+<ul>
+
+Load control (never load the same thing twice).
 
 </ul>
 
@@ -359,6 +369,16 @@ Succinct class creation
 </ul>
 
 
+### print-object ((object hash-table) stream)
+
+
+<ul>
+
+Pretty print hash tables.
+
+</ul>
+
+
 ### print-object ((it thing) out)
 
 
@@ -457,7 +477,7 @@ Iterator for running over files or strings.
 </ul>
 
 
-### readme (dir &optional (s t))
+### readme (&optional (s t))
 
 
 <ul>
@@ -539,12 +559,11 @@ Separate a string `s` on commas
 </ul>
 
 
-### lines 
-(s &optional (lo 0)
- (hi
-  (position
-   
-   s start (1+ lo))))
+### lines (s &optional (lo 0)
+           (hi
+            (position 
+
+                      s start (1+ lo))))
 
 
 <ul>
@@ -689,3 +708,4 @@ Tests for the test engine `yes.lisp`.
 </ul>
 
 
+; os.lisp

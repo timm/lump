@@ -13,8 +13,8 @@
                 :components (
                             (:file "bins")
                             (:file "col")
-                            (:file "got")
                             (:file "is")
+                            (:file "lump")
                             (:file "macros")
                             (:file "misc")
                             (:file "my")

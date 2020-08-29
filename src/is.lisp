@@ -17,7 +17,6 @@
   (defun num?    (x) (is x (my ch num)  (my ch less) (my ch more)))
 )
 
-(print (goal?  "!asas"))
 
 (defun skip? (x) 
   (and (stringp x)

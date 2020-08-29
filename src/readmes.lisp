@@ -14,10 +14,8 @@
              (progn ,@body))
        ,out)))
 
-(defun readme(dir &optional (s t))
+(defun readme(&optional (s t))
   "Generate README.md from doco strings from LISP code in a directory."
-  (if (> (length dir) 0)
-      (format t "~%~%# ~a~%~%~%" (string-upcase dir)))
   (dolist (f (sort (directory "*.lisp") 
                    #'(lambda (x y) (string< (pathname-name x) 
                                             (pathname-name y)))))
@@ -49,5 +47,5 @@
             (format s "~%")))))))
 
 (let ((cli (args)))
-  (if (and cli (equalp "--makedoc" (first cli)))
-    (readme (second cli))))
+  (if (and cli (member "--makedoc" cli :test #'equalp))
+    (readme)))

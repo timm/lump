@@ -2,6 +2,8 @@
 Lump=$(cd $( dirname "${BASH_SOURCE[0]}" ) && pwd )
 mkdir -p $Lump/.var
 
+hello() {
+clear
 tput bold; tput setaf 2; cat <<'EOF'
    .-.
   (o o)  (lithp
@@ -10,6 +12,8 @@ tput bold; tput setaf 2; cat <<'EOF'
     `~~~'
 EOF
 tput sgr0
+}
+
 
 for c in sbcl gawk; do
   if [ -z `which $c` ]; then
@@ -45,7 +49,7 @@ tput sgr0
 }
 define() {
   tput bold; tput setaf 0
-  echo "# $1"; tput sgr0
+  #echo "# $1"; tput sgr0
   eval  $1
 }
 define "alias gs='git status'"   
@@ -62,6 +66,17 @@ ccl()  { clisp $1.lisp;  }
 here() { cd $1; basename `pwd`; }    
 vims() { vim -u $Lump/.var/vimrc +PluginInstall +qall; }
 
+mymux() {
+  session=$RANDOM
+  tmux start-server
+  tmux new-session -d -s $session  
+  tmux send-keys ". $Lump/lump"  C-m  "hello" C-m C-m
+  tmux splitw -h -p 50
+  tmux selectp -t 1
+  tmux send-keys ". $Lump/lump"  C-m "hello" C-m C-m
+  tmux attach-session -t $session
+}
+
 publish() {
  reload; doco; system; gp
 }
@@ -69,14 +84,16 @@ publish() {
 (cd $Lump/../src;
 for i in *.lisp; do
   f=$(basename $i .lisp)
-  define "alias $f='sbcl --script $i'"
+  define "alias $f='lisp $i'"
 done
 )
 
 PROMPT_COMMAND='echo -ne " 💫 $(git branch 2>/dev/null | grep '^*' | colrm 1 2):";PS1="$(here ..)/$(here .):\!\e[m ▶ "'     
  
-lisp() {
-  sbcl --noinform --load lump.lisp --script $1.lisp  2> >( gawk ' /Backtrace/,/5:/ ' )
+lisp() { 
+  f=$(basename $1 .lisp).lisp
+  shift
+  sbcl --noinform --load $Lump/../src/lump.lisp  --script $f  $* 2> >( gawk ' {print} /^5:/ {exit}' ) 
 }
 
 system() { cat <<'EOF'> $Lump/../defsystem.lisp
@@ -103,7 +120,7 @@ EOF
 }
 
 doco() {
-  (cd $Lump/../src; doco1; about; clisp readmes.lisp --makedoc) > $Lump/../README.md
+  (cd $Lump/../src; doco1; about; lisp readmes.lisp --makedoc) > $Lump/../README.md
   git add $Lump/../README.md
 }
 
@@ -245,6 +262,28 @@ notifications:
 EOF
 
  
+want=$Lump/../src/lump.lisp
+[ -f "$want" ] || cat<<'EOF'>$want
+"Load control (never load the same thing twice)."
+; vim: noai:ts=2:sw=2:et: 
+
+(pushnew :lump *FEATURES*)
+
+(defvar *gotten* nil)
+
+(defun lump (&rest files)
+  (mapc 
+    (lambda (f)
+      (unless (member f *gotten* :test 'equalp)
+        (format *error-output* "; ~(~a~).lisp~%" f)
+        (push f *gotten*)
+        #-sbcl (load f) 
+        #+sbcl (handler-bind
+                 ((style-warning #'muffle-warning))
+                 (load f))))
+    files))
+EOF
+
 want=$Lump/.var/vimrc;
 [ -f "$want" ] || cat<<'EOF'>$want
 set list
@@ -511,3 +550,5 @@ setw -g monitor-activity on
 set -g visual-activity on
 EOF
 
+
+[ -z "$TMUX" ] && mymux

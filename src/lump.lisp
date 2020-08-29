@@ -6,13 +6,11 @@
 (defvar *gotten* nil)
 
 (defun lump (&rest files)
-  (mapc 
-    (lambda (f)
-      (unless (member f *gotten* :test 'equalp)
-        (format *error-output* "; ~(~a~).lisp~%" f)
-        (push f *gotten*)
-        #-sbcl (load f) 
-        #+sbcl (handler-bind
-                 ((style-warning #'muffle-warning))
-                 (load f))))
-    files))
+  (dolist (file files) 
+    (unless (member file *gotten* :test 'equalp)
+      (format *error-output* "; ~(~a~).lisp~%" file)
+      (push file *gotten*)
+      #-sbcl (load file) 
+      #+sbcl (handler-bind
+               ((style-warning #'muffle-warning))
+               (load file)))))
